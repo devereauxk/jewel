@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tar *)",
+      "Bash(pip3 list *)",
+      "Bash(python3 plot_weight_vs_zpt.py)",
+      "Bash(sort -t_ -k4 -n)",
+      "Bash(grep -c \"\\\\.hepmc$\")",
+      "Bash(grep \"\\\\.hepmc$\")",
+      "Bash(sort -t_ -k5 -n)",
+      "Bash(grep \"^out_ZJet_pp_[0-9]*\\\\.hepmc$\")",
+      "Bash(awk '{print $5}')",
+      "Bash(awk '/^E /{if\\(n>0\\){print \"Event\",evtnum,\": zero_pdg=\"zero\" nonzero_pdg=\"nonzero}; evtnum++; zero=0; nonzero=0; n++} /^P /{split\\($0,a\\); if\\(a[3]==0\\)zero++; else nonzero++} END{print \"Event\",evtnum,\": zero_pdg=\"zero\" nonzero_pdg=\"nonzero}' /raid5/data/kdevero/jewel_workspace/jewel-2.4.0-2D/eventfiles/out_ZJet_pp_1.hepmc)",
+      "Bash(awk '/^E /{if\\(n>0\\){print \"Event\",evtnum,\": zero_pdg=\"zero\" nonzero_pdg=\"nonzero}; evtnum++; zero=0; nonzero=0; n++} /^P /{split\\($0,a\\); if\\(a[3]==0\\)zero++; else nonzero++} END{print \"Event\",evtnum,\": zero_pdg=\"zero\" nonzero_pdg=\"nonzero}' /raid5/data/kdevero/jewel_workspace/jewel-2.2.0/eventfiles/out_ZJet_pp_1.hepmc)",
+      "Bash(awk '/^P /{split\\($0,a\\); if\\(a[4]==\"0.000000E+00\" && a[5]==\"0.000000E+00\" && a[6]==\"0.000000E+00\"\\) print a[3]}' /raid5/data/kdevero/jewel_workspace/jewel-2.4.0-2D/eventfiles/out_ZJet_pp_1.hepmc)",
+      "Bash(awk '/^P /{split\\($0,a\\); print a[3]}' /raid5/data/kdevero/jewel_workspace/jewel-2.2.0/eventfiles/out_ZJet_pp_1.hepmc)",
+      "Bash(awk '/^P /{split\\($0,a\\); if\\(a[3]!=0\\) print a[3]}' /raid5/data/kdevero/jewel_workspace/jewel-2.4.0-2D/eventfiles/out_ZJet_pp_1.hepmc)",
+      "Bash(awk '{print NF}')",
+      "Bash(awk '/^P /{split\\($0,a\\); print a[9]}' /raid5/data/kdevero/jewel_workspace/jewel-2.2.0/eventfiles/out_ZJet_pp_1.hepmc)",
+      "Bash(awk '/^P /{split\\($0,a\\); print a[9]}' /raid5/data/kdevero/jewel_workspace/jewel-2.4.0-2D/eventfiles/out_ZJet_pp_1.hepmc)",
+      "Bash(awk '{print $3}')",
+      "Bash(grep \"^111$\")",
+      "Bash(grep -n \"subroutine initpythia\\\\|end$\\\\|END$\" /raid5/data/kdevero/jewel_workspace/jewel-2.2.0/jewel-2.2.0.f)",
+      "Bash(grep -n \"subroutine initpythia\\\\|end$\\\\|END$\" /raid5/data/kdevero/jewel_workspace/jewel-2.4.0-2D/jewel-2.4.0.f)"
+    ]
+  }
+}

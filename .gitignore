@@ -1,0 +1,44 @@
+# Build artifacts
+*.o
+*.mod
+
+# JEWEL executables
+jewel-*-vac
+jewel-*-2D
+jewel-*-simple
+
+# Convert executables
+ConvertHepMCToRoot
+ValidateJewel
+ValidateJewel3Way
+ValidateJewelPPb
+CompareTrackPt
+
+# Generated data
+*.hepmc
+*.root
+eventfiles/
+eventfiles_*/
+parameters/
+logs/
+*.log
+
+# Lookup tables
+pdfs.dat
+splitint.dat
+xsecs.dat
+
+# Plot output
+*.png
+*.pdf
+*.svg
+
+# External dependencies
+lhapdf/
+lhapdf-src/
+local_deps/
+hydro/
+pdfset/
+
+# Study intermediate files
+study_trackpt/root/
