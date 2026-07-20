@@ -1,0 +1,15 @@
+NEVENT yyyy
+LOGFILE logs/out_ZJet_pPb_xxxx.log
+HEPMCFILE eventfiles/out_ZJet_pPb_xxxx.hepmc
+PTMIN 15.
+PTMAX 1200.
+PROCESS PPZJ
+ISOCHANNEL PP
+SQRTS 8160.
+PDFSET 10042
+MASS 1
+NPROTON 1
+WEXPO 4.5
+HADRO T
+KEEPRECOILS T
+MEDIUMPARAMS parameters/medium_pPb_xxxx.dat

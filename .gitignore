@@ -2,10 +2,12 @@
 *.o
 *.mod
 
-# JEWEL executables
+# JEWEL executables (not directories)
 jewel-*-vac
-jewel-*-2D
 jewel-*-simple
+# Match the executable but not the source directory
+jewel-*-2D
+!jewel-*-2D/
 
 # Convert executables
 ConvertHepMCToRoot
