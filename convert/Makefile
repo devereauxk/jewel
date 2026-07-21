@@ -4,21 +4,12 @@ CXX := g++
 CXXFLAGS := -O2 -Wall $(shell $(ROOT_CONFIG) --cflags)
 LDFLAGS := $(shell $(ROOT_CONFIG) --libs)
 
-all: ConvertHepMCToRoot ValidateJewel ValidateJewel3Way ValidateJewelPPb
+all: ConvertHepMCToRoot
 
 ConvertHepMCToRoot: ConvertHepMCToRoot.cpp
 	$(CXX) $(CXXFLAGS) -o $@ $< $(LDFLAGS)
 
-ValidateJewel: ValidateJewel.cpp
-	$(CXX) $(CXXFLAGS) -o $@ $< $(LDFLAGS)
-
-ValidateJewel3Way: ValidateJewel3Way.cpp
-	$(CXX) $(CXXFLAGS) -o $@ $< $(LDFLAGS)
-
-ValidateJewelPPb: ValidateJewelPPb.cpp
-	$(CXX) $(CXXFLAGS) -o $@ $< $(LDFLAGS)
-
 clean:
-	rm -f ConvertHepMCToRoot ValidateJewel ValidateJewel3Way ValidateJewelPPb
+	rm -f ConvertHepMCToRoot
 
 .PHONY: all clean

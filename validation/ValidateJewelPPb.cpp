@@ -27,7 +27,7 @@ struct Counts {
     Long64_t nEvt;
 };
 
-Counts fillFromTree(TTree* tree, Histos& h) {
+Counts fillFromTree(TTree* tree, Histos& h, bool hasRecoils = false) {
     float EventWeight;
     std::vector<float>* genZPt = nullptr;
     std::vector<float>* genZEta = nullptr;
@@ -58,12 +58,18 @@ Counts fillFromTree(TTree* tree, Histos& h) {
 
         if (trackPt && trackWeight && trackCharge) {
             for (size_t t = 0; t < trackPt->size(); t++) {
-                if (trackWeight->at(t) < 0.5) continue;
+                float tw = trackWeight->at(t);
+                if (hasRecoils) {
+                    if (tw == 0) continue;
+                } else {
+                    if (tw < 0.5) continue;
+                }
                 if (trackCharge->at(t) == 999) continue;
                 if (std::abs(trackEta->at(t)) > 2.4) continue;
                 if (trackPt->at(t) < 0.5) continue;
-                h.hTrkPt->Fill(trackPt->at(t), EventWeight);
-                h.hTrkEta->Fill(trackEta->at(t), EventWeight);
+                double holeCorr = hasRecoils ? (1 - 0.33 * (tw < 0)) : 1.0;
+                h.hTrkPt->Fill(trackPt->at(t), EventWeight * holeCorr);
+                h.hTrkEta->Fill(trackEta->at(t), EventWeight * holeCorr);
             }
         }
     }
@@ -234,17 +240,17 @@ int main(int argc, char* argv[]) {
     Histos hPPb_uw = makeHistos("hPPb_uw");
     Histos hPP_uw = makeHistos("hPP_uw");
 
-    auto loadFile = [](const char* path, Histos& h, const char* label) -> Counts {
+    auto loadFile = [](const char* path, Histos& h, const char* label, bool hasRecoils) -> Counts {
         TFile* f = TFile::Open(path);
         TTree* t = (TTree*)f->Get("Tree");
         std::cout << label << ": " << t->GetEntries() << " events" << std::endl;
-        Counts c = fillFromTree(t, h);
+        Counts c = fillFromTree(t, h, hasRecoils);
         f->Close();
         return c;
     };
 
-    Counts cPPb = loadFile(filePPb.c_str(), hPPb, "pPb (hydro)");
-    Counts cPP = loadFile(filePP.c_str(), hPP, "pp (vacuum)");
+    Counts cPPb = loadFile(filePPb.c_str(), hPPb, "pPb (hydro)", true);
+    Counts cPP = loadFile(filePP.c_str(), hPP, "pp (vacuum)", false);
 
     std::cout << "pPb: nZ(uw)=" << cPPb.nZuw << " nZ(w)=" << cPPb.nZw
               << " sumW=" << cPPb.nEvtW << std::endl;

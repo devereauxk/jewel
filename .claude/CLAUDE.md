@@ -8,7 +8,8 @@ Monte Carlo event generation for Z+jet production in pp and pPb collisions using
 jewel_workspace/
 ├── jewel-2.4.0-2D/    Main workspace: vacuum + 2D hydro medium executables
 ├── jewel-2.2.0/       Older JEWEL version (vacuum only, for cross-version validation)
-├── convert/           HepMC→ROOT conversion and validation plotting tools
+├── convert/           HepMC→ROOT converter (ConvertHepMCToRoot)
+├── validation/        Validation/comparison tools, run scripts, plots, ROOT files
 ├── hydro/sample/      100 Ncoll bins of Trajectum hydro profiles (8.16 TeV pPb)
 ├── lhapdf/            LHAPDF 6.5.5 (lib/ and share/LHAPDF/)
 ├── local_deps/        System libraries needed at runtime (libpcre, etc.)
@@ -27,14 +28,21 @@ make            # builds jewel-2.4.0-vac, jewel-2.4.0-simple, jewel-2.4.0-2D
 
 Fortran source, links against LHAPDF at `lhapdf/lib/`.
 
-### Conversion/validation tools
+### Converter
 
 ```bash
 cd convert/
-make            # builds ConvertHepMCToRoot, ValidateJewel, ValidateJewel3Way, ValidateJewelPPb
+make            # builds ConvertHepMCToRoot
 ```
 
-C++ with ROOT 6.34.04 at `/raid5/root/root-v6.34.04/root/`.
+### Validation tools
+
+```bash
+cd validation/
+make            # builds ValidateJewel, ValidateJewel3Way, ValidateJewelPPb, CompareTrackPt
+```
+
+Both use C++ with ROOT 6.34.04 at `/raid5/root/root-v6.34.04/root/`.
 
 ## Environment
 
@@ -76,7 +84,7 @@ Placeholders: `xxxx` → job/bin ID, `yyyy` → events per bin (pPb only).
 - WEXPO 4.5 (importance sampling — events carry EventWeight)
 - PTMIN 15, PTMAX 1200 GeV
 - MASS 1, NPROTON 1
-- KEEPRECOILS T (pPb only)
+- KEEPRECOILS T, COMPRESS T, WRITESCATCEN T, WRITEDUMMIES T (pPb only)
 
 ### Hydro profiles
 
@@ -86,13 +94,15 @@ Each bin contains: `NCollHisto.dat`, `Tcontour*` (29 time slices), `Vcontour*` (
 
 ## Conversion Pipeline
 
-### HepMC → ROOT
+### HepMC → ROOT (`convert/`)
 
 ```bash
-./ConvertHepMCToRoot input1.hepmc [input2.hepmc ...] output.root
+convert/ConvertHepMCToRoot input1.hepmc [input2.hepmc ...] output.root
+convert/ConvertHepMCToRoot --NegativeID 3 input1.hepmc [input2.hepmc ...] output.root
 ```
 
 Last argument is always the output. Shell globs work for input files.
+`--NegativeID 3` maps HepMC status-3 particles (scattering centres from WRITESCATCEN) to `trackWeight = -1` for hole subtraction in medium runs.
 
 ### ROOT tree structure
 
@@ -103,18 +113,27 @@ Last argument is always the output. Shell globs work for input files.
 
 ### Track selection (in validation tools)
 
-- `trackWeight >= 0.5`
+- `trackWeight >= 0.5` (pp) or `trackWeight != 0` (pPb with recoils)
 - `trackCharge != 999` (not neutral placeholder)
 - `|eta| < 2.4`
 - `pT > 0.5 GeV`
 
-## Validation Tools
+### Hole subtraction (pPb)
+
+- `trackWeight` values: +1 (final-state), 0 (intermediate/neutral), -1 (scattering centre holes)
+- Track fill weight for pPb: `EventWeight * (1 - 0.33 * (trackWeight < 0))`
+- Hole tracks get a 0.67 correction factor; normal tracks get 1.0
+- Z histograms use EventWeight only (no hole correction)
+
+## Validation Tools (`validation/`)
 
 | Tool | Args | Purpose |
 |------|------|---------|
 | `ValidateJewel` | `sample.root ref.root outDir/` | 2-way shape comparison |
 | `ValidateJewel3Way` | `jewel240.root jewel220.root ref.root outDir/` | 3-way version comparison |
 | `ValidateJewelPPb` | `pPb.root pp.root outDir/` | pPb vs pp with ratio panels |
+
+Run scripts in `validation/` (e.g., `run_all_2M.sh`, `run_validation_pPb.sh`) handle conversion + validation end-to-end, referencing the converter at `../convert/ConvertHepMCToRoot`.
 
 ### Normalization
 
@@ -133,7 +152,7 @@ Examples:
 - `plots_pPb_vs_pp8160_2M/` — pPb vs pp at 8160 GeV, 2M events
 - `plots_pPb_vs_pp8160_100k/` — same comparison at 100k
 
-## Produced ROOT Files (`convert/`)
+## Produced ROOT Files (`validation/`)
 
 | File | System | Version | Energy | Events |
 |------|--------|---------|--------|--------|

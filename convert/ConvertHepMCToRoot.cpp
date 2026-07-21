@@ -40,14 +40,33 @@ static int getCharge(int pdg, const std::map<int, int>& chargeMap) {
 
 int main(int argc, char* argv[]) {
     if (argc < 3) {
-        std::cerr << "Usage: " << argv[0] << " input1.hepmc [input2.hepmc ...] output.root" << std::endl;
+        std::cerr << "Usage: " << argv[0]
+                  << " [--NegativeID <status>] input1.hepmc [input2.hepmc ...] output.root"
+                  << std::endl;
         return 1;
     }
 
-    std::string outputFile = argv[argc - 1];
-    std::vector<std::string> inputFiles;
-    for (int i = 1; i < argc - 1; i++)
-        inputFiles.push_back(argv[i]);
+    int negativeID = -999999;
+    std::vector<std::string> positionalArgs;
+    for (int i = 1; i < argc; i++) {
+        std::string arg = argv[i];
+        if (arg == "--NegativeID" && i + 1 < argc) {
+            negativeID = std::stoi(argv[++i]);
+        } else {
+            positionalArgs.push_back(arg);
+        }
+    }
+
+    if (positionalArgs.size() < 2) {
+        std::cerr << "Error: need at least one input file and one output file" << std::endl;
+        return 1;
+    }
+
+    std::string outputFile = positionalArgs.back();
+    std::vector<std::string> inputFiles(positionalArgs.begin(), positionalArgs.end() - 1);
+
+    if (negativeID != -999999)
+        std::cout << "NegativeID: status " << negativeID << " -> trackWeight = -1" << std::endl;
 
     auto chargeMap = makeChargeMap();
 
@@ -123,6 +142,7 @@ int main(int argc, char* argv[]) {
 
             double weight = 0;
             if (p.status == 1) weight = 1;
+            if (p.status == negativeID) weight = -1;
 
             v_trackPt.push_back(pt);
             v_trackEta.push_back(eta);
