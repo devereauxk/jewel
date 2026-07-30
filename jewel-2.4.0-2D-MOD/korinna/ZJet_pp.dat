@@ -1,0 +1,15 @@
+NEVENT 1000
+NJOB xxxx
+LOGFILE logs/out_ZJet_pp_xxxx.log
+HEPMCFILE eventfiles/out_ZJet_pp_xxxx.hepmc
+PTMIN 15.
+PTMAX 1200.
+PROCESS PPZJ
+ISOCHANNEL PP
+SQRTS 5020.
+PDFSET 10042
+MASS 1
+NPROTON 1
+WEXPO 4.5
+HADRO T
+MEDIUMPARAMS medium-params.dat

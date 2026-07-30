@@ -22,7 +22,12 @@
       "Bash(grep \"^111$\")",
       "Bash(grep -n \"subroutine initpythia\\\\|end$\\\\|END$\" /raid5/data/kdevero/jewel_workspace/jewel-2.2.0/jewel-2.2.0.f)",
       "Bash(grep -n \"subroutine initpythia\\\\|end$\\\\|END$\" /raid5/data/kdevero/jewel_workspace/jewel-2.4.0-2D/jewel-2.4.0.f)",
-      "Bash(git check-ignore *)"
+      "Bash(git check-ignore *)",
+      "Bash(chmod +x /home/kdevero/work/jewel_workspace/jewel-2.4.0-2D/genPP8160v3ZJet.sh)",
+      "Bash(nohup /home/kdevero/work/jewel_workspace/jewel-2.4.0-2D/genPP8160v3ZJet.sh)",
+      "Bash(echo \"PID: $!\")",
+      "Bash(chmod +x /home/kdevero/work/jewel_workspace/jewel-2.4.0-2D/genPPbv2ZJet.sh)",
+      "Bash(nohup /home/kdevero/work/jewel_workspace/jewel-2.4.0-2D/genPPbv2ZJet.sh)"
     ]
   }
 }

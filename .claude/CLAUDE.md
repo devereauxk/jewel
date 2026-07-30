@@ -60,31 +60,54 @@ export LD_LIBRARY_PATH=/raid5/root/root-v6.34.04/root/lib:/raid5/data/kdevero/je
 
 ### Config templates (`jewel-2.4.0-2D/korinna/`)
 
-| Template | System | Energy | Executable |
-|----------|--------|--------|------------|
-| `ZJet_pp.dat` | pp vacuum | 5020 GeV | jewel-2.4.0-vac |
-| `ZJet_pp_8160.dat` | pp vacuum | 8160 GeV | jewel-2.4.0-vac |
-| `ZJet_pPb.dat` | pPb hydro | 8160 GeV | jewel-2.4.0-2D |
+| Template | System | Energy | PTMIN | WEXPO | Executable |
+|----------|--------|--------|-------|-------|------------|
+| `ZJet_pp.dat` | pp vacuum | 5020 GeV | 15 | 4.5 | jewel-2.4.0-vac |
+| `ZJet_pp_8160.dat` | pp vacuum | 8160 GeV | 15 | 4.5 | jewel-2.4.0-vac |
+| `ZJet_pp8160v2.dat` | pp vacuum | 8160 GeV | 5 | 1.2 | jewel-2.4.0-vac |
+| `ZJet_pp8160v3.dat` | pp vacuum | 8160 GeV | 0 | 1.4 | jewel-2.4.0-vac |
+| `ZJet_pp8160_wexpo4p5.dat` | pp vacuum | 8160 GeV | 0 | 4.5 | jewel-2.4.0-vac |
+| `ZJet_pPb.dat` | pPb hydro | 8160 GeV | 15 | 4.5 | jewel-2.4.0-2D |
+| `ZJet_pPb_v2.dat` | pPb hydro | 8160 GeV | 0 | 1.4 | jewel-2.4.0-2D |
+
+JEWEL 2.2.0 templates in `jewel-2.2.0/korinna/`:
+
+| Template | System | Energy | PTMIN | WEXPO |
+|----------|--------|--------|-------|-------|
+| `ZJet_pp.dat` | pp vacuum | 5020 GeV | 15 | 4.5 |
+| `ZJet_pp_v2.dat` | pp vacuum | 5020 GeV | 0 | 1.4 |
 
 Placeholders: `xxxx` → job/bin ID, `yyyy` → events per bin (pPb only).
 
 ### Generation scripts (`jewel-2.4.0-2D/`)
 
-| Script | System | Events | Parallelism |
-|--------|--------|--------|-------------|
-| `genPPZJet.sh` | pp 5020 | 100k (100 jobs x 1000) | 5 parallel |
-| `genPP8160ZJet.sh` | pp 8160 | 2M (2000 jobs x 1000) | 10 parallel |
-| `genPPbZJet.sh` | pPb 8160 | 100k (100 bins x 1000) | 5 parallel |
-| `genPPb2MZJet.sh` | pPb 8160 | 2M (100 bins x 20000) | 10 parallel |
+| Script | System | Events | Config | Parallelism |
+|--------|--------|--------|--------|-------------|
+| `genPPZJet.sh` | pp 5020 | 100k (100 x 1000) | `ZJet_pp.dat` | 5 parallel |
+| `genPP8160ZJet.sh` | pp 8160 | 2M (2000 x 1000) | `ZJet_pp_8160.dat` | 10 parallel |
+| `genPP8160v2ZJet.sh` | pp 8160 | 500k (500 x 1000) | `ZJet_pp8160v2.dat` | 5 parallel |
+| `genPP8160v3ZJet.sh` | pp 8160 | 500k (500 x 1000) | `ZJet_pp8160v3.dat` | 5 parallel |
+| `genPP8160_wexpo4p5_ZJet.sh` | pp 8160 | 500k (500 x 1000) | `ZJet_pp8160_wexpo4p5.dat` | 5 parallel |
+| `genPPbZJet.sh` | pPb 8160 | 100k (100 bins x 1000) | `ZJet_pPb.dat` | 5 parallel |
+| `genPPb2MZJet.sh` | pPb 8160 | 2M (100 bins x 20000) | `ZJet_pPb.dat` | 10 parallel |
+| `genPPbv2ZJet.sh` | pPb 8160 | 500k (100 bins x 5000) | `ZJet_pPb_v2.dat` | 5 parallel |
 
-### Key physics parameters (all runs)
+JEWEL 2.2.0 scripts in `jewel-2.2.0/`:
 
-- PROCESS PPZJ, ISOCHANNEL PP
-- PDFSET 10042 (nCTEQ15)
-- WEXPO 4.5 (importance sampling — events carry EventWeight)
-- PTMIN 15, PTMAX 1200 GeV
-- MASS 1, NPROTON 1
-- KEEPRECOILS T, COMPRESS T, WRITESCATCEN T, WRITEDUMMIES T (pPb only)
+| Script | Events | Config |
+|--------|--------|--------|
+| `genPPZJet.sh` | 2M (2000 x 1000) | `ZJet_pp.dat` |
+| `genPPv2ZJet.sh` | 500k (500 x 1000) | `ZJet_pp_v2.dat` |
+
+### Key physics parameters
+
+Common to all runs:
+- PROCESS PPZJ, ISOCHANNEL PP, HADRO T
+- PDFSET 10042 (nCTEQ15 / cteq6l1), PTMAX 1200
+- MASS 1, NPROTON 1 (2.4.0) or NSET 0 (2.2.0) — no nuclear PDF
+- pPb only: KEEPRECOILS T, COMPRESS T, WRITESCATCEN T, WRITEDUMMIES T
+
+PTMIN and WEXPO vary by sample — see config templates table above. WEXPO controls importance sampling via `pT_hat^WEXPO`; all events carry EventWeight to compensate. WEXPO=1.4 with PTMIN=0 gives roughly equal statistics in Z pT bins [0,30) and [30,500] GeV (see `wexpo_study.md` in the working install).
 
 ### Hydro profiles
 
@@ -154,16 +177,24 @@ Examples:
 
 ## Produced ROOT Files (`validation/`)
 
-| File | System | Version | Energy | Events |
-|------|--------|---------|--------|--------|
-| `jewel_pp_220.root` | pp | 2.2.0 | 5020 | 2M |
-| `jewel_pp_240.root` | pp | 2.4.0 | 5020 | ~1.89M |
-| `jewel_pp8160_2M.root` | pp | 2.4.0 | 8160 | ~2M |
-| `jewel_pPb_2M.root` | pPb | 2.4.0 | 8160 | ~1.34M |
+| File | JEWEL | System | Energy | PTMIN | WEXPO | Events |
+|------|-------|--------|--------|-------|-------|--------|
+| `jewel_pp_220.root` | 2.2.0 | pp | 5020 | 15 | 4.5 | 2,000,000 |
+| `jewel_pp_220_v2_500k.root` | 2.2.0 | pp | 5020 | 0 | 1.4 | 500,000 |
+| `jewel_pp_240.root` | 2.4.0 | pp | 5020 | 15 | 4.5 | 1,886,306 |
+| `jewel_pp8160_2M.root` | 2.4.0 | pp | 8160 | 15 | 4.5 | 1,831,529 |
+| `jewel_pp8160v2_500k.root` | 2.4.0 | pp | 8160 | 5 | 1.2 | 468,857 |
+| `jewel_pp8160v3_500k.root` | 2.4.0 | pp | 8160 | 0 | 1.4 | 468,816 |
+| `jewel_pp8160_wexpo4p5_500k.root` | 2.4.0 | pp | 8160 | 0 | 4.5 | 472,273 |
+| `jewel_pPb_2M.root` | 2.4.0-2D | pPb | 8160 | 15 | 4.5 | 1,340,059 |
+| `jewel_pPb_v2_500k.root` | 2.4.0-2D | pPb | 8160 | 0 | 1.4 | 468,584 |
+
+Reference files (external, in workspace root): `jewel_pp-v9.root` (2M events, pp 5020 GeV), `jewel_pp-v7.root` (100k events, pp 5020 GeV). Generation settings unknown.
 
 ## Common Issues
 
 - ROOT needs `local_deps/lib/x86_64-linux-gnu` in LD_LIBRARY_PATH for libpcre
-- WEXPO 4.5 gives ~94% acceptance for pp vacuum (1000 requested → ~940 good events) and ~67% for pPb with medium
+- WEXPO 4.5 gives ~94% acceptance for pp vacuum (1000 requested → ~940 good events)
+- pPb with Trajectum 8.16 TeV hydro also gives ~94% acceptance — the medium is too dilute for jet-medium scatterings (0 scatterings across all Ncoll bins)
 - The snap-installed ROOT (`/snap/root-framework/`) conflicts with the local install — always set PATH/LD_LIBRARY_PATH explicitly
 - HepMC conversion from 2000 files uses shell glob expansion (~140 KB args, within ARG_MAX)

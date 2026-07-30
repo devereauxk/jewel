@@ -10,14 +10,46 @@ JEWEL manual https://arxiv.org/pdf/1311.0048
 
 - `jewel-2.4.0-2D/` Main workspace: vacuum, simple, and 2D hydro medium executables
 - `jewel-2.2.0/` Older JEWEL version (vacuum only, for cross-version validation)
-- `convert/` HepMC-to-ROOT conversion and validation plotting tools
+- `convert/` HepMC-to-ROOT converter (ConvertHepMCToRoot)
+- `validation/` Validation/comparison tools, run scripts, plots, ROOT files
 - `hydro/sample/` 100 Ncoll bins of Trajectum hydro profiles (8.16 TeV pPb)
 - `lhapdf/` LHAPDF 6.5.5 (lib/ and share/LHAPDF/)
 - `local_deps/` System libraries needed at runtime (libpcre, etc.)
 
+## Produced ROOT files
+
+All ROOT files are in `validation/`. The reference files `jewel_pp-v9.root` and `jewel_pp-v7.root` are in the workspace root.
+
+| File | JEWEL | System | Energy | PTMIN | PTMAX | WEXPO | PDFSET | nPDF | Events | Config |
+|------|-------|--------|--------|-------|-------|-------|--------|------|--------|--------|
+| `jewel_pp_220.root` | 2.2.0 | pp | 5020 | 15 | 1200 | 4.5 | 10042 | off (NSET=0) | 2,000,000 | `ZJet_pp.dat` |
+| `jewel_pp_220_v2_500k.root` | 2.2.0 | pp | 5020 | 0 | 1200 | 1.4 | 10042 | off (NSET=0) | 500,000 | `ZJet_pp_v2.dat` |
+| `jewel_pp_240.root` | 2.4.0 | pp | 5020 | 15 | 1200 | 4.5 | 10042 | off | 1,886,306 | `ZJet_pp.dat` |
+| `jewel_pp8160_2M.root` | 2.4.0 | pp | 8160 | 15 | 1200 | 4.5 | 10042 | off | 1,831,529 | `ZJet_pp_8160.dat` |
+| `jewel_pp8160v2_500k.root` | 2.4.0 | pp | 8160 | 5 | 1200 | 1.2 | 10042 | off | 468,857 | `ZJet_pp8160v2.dat` |
+| `jewel_pp8160v3_500k.root` | 2.4.0 | pp | 8160 | 0 | 1200 | 1.4 | 10042 | off | 468,816 | `ZJet_pp8160v3.dat` |
+| `jewel_pp8160_wexpo4p5_500k.root` | 2.4.0 | pp | 8160 | 0 | 1200 | 4.5 | 10042 | off | 472,273 | `ZJet_pp8160_wexpo4p5.dat` |
+| `jewel_pPb_2M.root` | 2.4.0-2D | pPb | 8160 | 15 | 1200 | 4.5 | 10042 | off | 1,340,059 | `ZJet_pPb.dat` |
+| `jewel_pPb_v2_500k.root` | 2.4.0-2D | pPb | 8160 | 0 | 1200 | 1.4 | 10042 | off | 468,584 | `ZJet_pPb_v2.dat` |
+| `jewel_pp8160v3_MOD_500k.root` | 2.4.0-MOD | pp | 8160 | 0 | 1200 | 1.4 | 10042 | off | 500,000 | `ZJet_pp8160v3.dat` |
+| `jewel_pPb_v2_MOD_500k.root` | 2.4.0-MOD | pPb | 8160 | 0 | 1200 | 1.4 | 10042 | off | 501,000 | `ZJet_pPb_v2.dat` |
+| `jewel_pp-v9.root` (ref) | ? | pp | 5020 | ? | ? | ? | ? | ? | 2,000,000 | FHead external |
+| `jewel_pp-v7.root` (ref) | ? | pp | 5020 | ? | ? | ? | ? | ? | 100,000 | FHead external |
+
+All pp vacuum runs use PROCESS PPZJ, ISOCHANNEL PP, HADRO T. pPb runs additionally use KEEPRECOILS T, COMPRESS T, WRITESCATCEN T, WRITEDUMMIES T.
+
+**2.4.0-MOD** fixes a bug where `MSTP(125)=2` disabled the parton shower for PPZJ events (zero splittings, zero medium scatterings). See `jewel-2.4.0-2D-MOD/CHANGES.diff` for details. Unmodified 2.4.0/2.4.0-2D samples above have no parton shower evolution and should not be used for physics analysis.
+
+WEXPO controls importance sampling via `pT_hat^WEXPO`. All events carry EventWeight to compensate. WEXPO=1.4 with PTMIN=0 gives roughly equal raw event counts in Z pT bins [0,30) and [30,500] GeV (see `jewel-2.4.0-2D/wexpo_study.md`).
+
 ## Conversion and validation
 
-The `convert/` directory contains the HepMC-to-ROOT converter and validation tools, built with ROOT 6.34.04. See `convert/` for source and usage details.
+The `convert/` directory contains the HepMC-to-ROOT converter. The `validation/` directory contains validation/comparison tools and run scripts. Both are built with ROOT 6.34.04.
+
+```bash
+cd convert/ && make       # builds ConvertHepMCToRoot
+cd validation/ && make    # builds ValidateJewel, ValidateJewel3Way, ValidateJewelPPb, CompareTrackPt
+```
 
 ## JEWEL 2.2.0
 
