@@ -8,7 +8,8 @@ JEWEL manual https://arxiv.org/pdf/1311.0048
 
 ## Directory structure
 
-- `jewel-2.4.0-2D/` Main workspace: vacuum, simple, and 2D hydro medium executables
+- `jewel-2.4.0-2D/` Main workspace: vacuum, simple, and 2D hydro medium executables (unmodified upstream)
+- `jewel-2.4.0-2D-MOD/` Modified JEWEL 2.4.0 with bug fixes for PPZJ (see below)
 - `jewel-2.2.0/` Older JEWEL version (vacuum only, for cross-version validation)
 - `convert/` HepMC-to-ROOT converter (ConvertHepMCToRoot)
 - `validation/` Validation/comparison tools, run scripts, plots, ROOT files
@@ -20,25 +21,26 @@ JEWEL manual https://arxiv.org/pdf/1311.0048
 
 All ROOT files are in `validation/`. The reference files `jewel_pp-v9.root` and `jewel_pp-v7.root` are in the workspace root.
 
-| File | JEWEL | System | Energy | PTMIN | PTMAX | WEXPO | PDFSET | nPDF | Events | Config |
-|------|-------|--------|--------|-------|-------|-------|--------|------|--------|--------|
-| `jewel_pp_220.root` | 2.2.0 | pp | 5020 | 15 | 1200 | 4.5 | 10042 | off (NSET=0) | 2,000,000 | `ZJet_pp.dat` |
-| `jewel_pp_220_v2_500k.root` | 2.2.0 | pp | 5020 | 0 | 1200 | 1.4 | 10042 | off (NSET=0) | 500,000 | `ZJet_pp_v2.dat` |
-| `jewel_pp_240.root` | 2.4.0 | pp | 5020 | 15 | 1200 | 4.5 | 10042 | off | 1,886,306 | `ZJet_pp.dat` |
-| `jewel_pp8160_2M.root` | 2.4.0 | pp | 8160 | 15 | 1200 | 4.5 | 10042 | off | 1,831,529 | `ZJet_pp_8160.dat` |
-| `jewel_pp8160v2_500k.root` | 2.4.0 | pp | 8160 | 5 | 1200 | 1.2 | 10042 | off | 468,857 | `ZJet_pp8160v2.dat` |
-| `jewel_pp8160v3_500k.root` | 2.4.0 | pp | 8160 | 0 | 1200 | 1.4 | 10042 | off | 468,816 | `ZJet_pp8160v3.dat` |
-| `jewel_pp8160_wexpo4p5_500k.root` | 2.4.0 | pp | 8160 | 0 | 1200 | 4.5 | 10042 | off | 472,273 | `ZJet_pp8160_wexpo4p5.dat` |
-| `jewel_pPb_2M.root` | 2.4.0-2D | pPb | 8160 | 15 | 1200 | 4.5 | 10042 | off | 1,340,059 | `ZJet_pPb.dat` |
-| `jewel_pPb_v2_500k.root` | 2.4.0-2D | pPb | 8160 | 0 | 1200 | 1.4 | 10042 | off | 468,584 | `ZJet_pPb_v2.dat` |
-| `jewel_pp8160v3_MOD_500k.root` | 2.4.0-MOD | pp | 8160 | 0 | 1200 | 1.4 | 10042 | off | 500,000 | `ZJet_pp8160v3.dat` |
-| `jewel_pPb_v2_MOD_500k.root` | 2.4.0-MOD | pPb | 8160 | 0 | 1200 | 1.4 | 10042 | off | 501,000 | `ZJet_pPb_v2.dat` |
-| `jewel_pp-v9.root` (ref) | ? | pp | 5020 | ? | ? | ? | ? | ? | 2,000,000 | FHead external |
-| `jewel_pp-v7.root` (ref) | ? | pp | 5020 | ? | ? | ? | ? | ? | 100,000 | FHead external |
+| File | JEWEL | System | Energy | PTMIN | PTMAX | WEXPO | PDFSET | nPDF | Recoils | Events | Config |
+|------|-------|--------|--------|-------|-------|-------|--------|------|---------|--------|--------|
+| `jewel_pp_220.root` | 2.2.0 | pp | 5020 | 15 | 1200 | 4.5 | 10042 | off (NSET=0) | n/a | 2,000,000 | `ZJet_pp.dat` |
+| `jewel_pp_220_v2_500k.root` | 2.2.0 | pp | 5020 | 0 | 1200 | 1.4 | 10042 | off (NSET=0) | n/a | 500,000 | `ZJet_pp_v2.dat` |
+| `jewel_pp_240.root` | 2.4.0 | pp | 5020 | 15 | 1200 | 4.5 | 10042 | off | n/a | 1,886,306 | `ZJet_pp.dat` |
+| `jewel_pp8160_2M.root` | 2.4.0 | pp | 8160 | 15 | 1200 | 4.5 | 10042 | off | n/a | 1,831,529 | `ZJet_pp_8160.dat` |
+| `jewel_pp8160v2_500k.root` | 2.4.0 | pp | 8160 | 5 | 1200 | 1.2 | 10042 | off | n/a | 468,857 | `ZJet_pp8160v2.dat` |
+| `jewel_pp8160v3_500k.root` | 2.4.0 | pp | 8160 | 0 | 1200 | 1.4 | 10042 | off | n/a | 468,816 | `ZJet_pp8160v3.dat` |
+| `jewel_pp8160_wexpo4p5_500k.root` | 2.4.0 | pp | 8160 | 0 | 1200 | 4.5 | 10042 | off | n/a | 472,273 | `ZJet_pp8160_wexpo4p5.dat` |
+| `jewel_pPb_2M.root` | 2.4.0-2D | pPb | 8160 | 15 | 1200 | 4.5 | 10042 | off | on | 1,340,059 | `ZJet_pPb.dat` |
+| `jewel_pPb_v2_500k.root` | 2.4.0-2D | pPb | 8160 | 0 | 1200 | 1.4 | 10042 | off | on | 468,584 | `ZJet_pPb_v2.dat` |
+| `jewel_pp8160v3_MOD_500k.root` | 2.4.0-2D-MOD | pp | 8160 | 0 (unclamped) | 1200 | 1.4 | 10042 | off | n/a | 500,000 | `ZJet_pp8160v3.dat` |
+| `jewel_pPb_v2_MOD_500k.root` | 2.4.0-2D-MOD | pPb | 8160 | 0 (unclamped) | 1200 | 1.4 | 10042 | off | on | 500,000 | `ZJet_pPb_v2.dat` |
+| `jewel_pPb_v3_MOD_norecoil_500k.root` | 2.4.0-2D-MOD | pPb | 8160 | 0 (unclamped) | 1200 | 1.4 | 10042 | off | off | 500,000 | `ZJet_pPb_v3.dat` |
+| `jewel_pp-v9.root` (ref) | ? | pp | 5020 | ? | ? | ? | ? | ? | ? | 2,000,000 | FHead external |
+| `jewel_pp-v7.root` (ref) | ? | pp | 5020 | ? | ? | ? | ? | ? | ? | 100,000 | FHead external |
 
-All pp vacuum runs use PROCESS PPZJ, ISOCHANNEL PP, HADRO T. pPb runs additionally use KEEPRECOILS T, COMPRESS T, WRITESCATCEN T, WRITEDUMMIES T.
+All pp vacuum runs use PROCESS PPZJ, ISOCHANNEL PP, HADRO T. pPb runs with recoils on additionally use KEEPRECOILS T, COMPRESS T, WRITESCATCEN T, WRITEDUMMIES T. The no-recoil pPb run uses KEEPRECOILS F with no hole subtraction needed.
 
-**2.4.0-MOD** fixes a bug where `MSTP(125)=2` disabled the parton shower for PPZJ events (zero splittings, zero medium scatterings). See `jewel-2.4.0-2D-MOD/CHANGES.diff` for details. Unmodified 2.4.0/2.4.0-2D samples above have no parton shower evolution and should not be used for physics analysis.
+**2.4.0-2D-MOD** fixes two bugs: (1) `MSTP(125)=2` disabled the parton shower for PPZJ events (zero splittings, zero medium scatterings), and (2) PTMIN was unconditionally clamped to 3 GeV, silently overriding PTMIN=0 configs for Z/W+jet processes (where the Z mass regulates the cross section). Files marked "unclamped" use the true PTMIN=0 — all other PTMIN=0 entries were actually PTMIN=3. See `jewel-2.4.0-2D-MOD/CHANGES.diff` for details. Unmodified 2.4.0/2.4.0-2D samples above have no parton shower evolution and should not be used for physics analysis.
 
 WEXPO controls importance sampling via `pT_hat^WEXPO`. All events carry EventWeight to compensate. WEXPO=1.4 with PTMIN=0 gives roughly equal raw event counts in Z pT bins [0,30) and [30,500] GeV (see `jewel-2.4.0-2D/wexpo_study.md`).
 
@@ -50,6 +52,31 @@ The `convert/` directory contains the HepMC-to-ROOT converter. The `validation/`
 cd convert/ && make       # builds ConvertHepMCToRoot
 cd validation/ && make    # builds ValidateJewel, ValidateJewel3Way, ValidateJewelPPb, CompareTrackPt
 ```
+
+## JEWEL 2.4.0-2D-MOD
+
+A modified copy of `jewel-2.4.0-2D/` with two bug fixes for Z/W+jet (PPZJ) processes. All changes are documented in `jewel-2.4.0-2D-MOD/CHANGES.diff`.
+
+### Bug 1: MSTP(125)=2 disables parton shower for PPZJ
+
+JEWEL 2.4.0 sets `MSTP(125)=2` to preserve ISR shower history in the PYTHIA 6 event record. This is required for the PPJJ process's special ISR handling, but breaks PPZJ: the jet parton gets an intermediate copy (K=13) that the LME finder cannot activate, so no partons enter MAKECASCADE — resulting in zero splittings and zero medium scatterings.
+
+**Fix:** Guard `MSTP(125)=2` for PPJJ only. Use the simpler 2.2.0-style deactivation logic (DO 283) for all other processes.
+
+### Bug 2: PTMIN unconditionally clamped to 3 GeV
+
+Line 575 clamps `PTMIN` to a minimum of 3 GeV for all processes. This protects divergent processes like PPJJ (1/pT^4 singularity), but is unnecessary for Z/W+jet where the Z mass regulates the cross section. The clamp silently overrode all PTMIN=0 configs to PTMIN=3.
+
+**Fix:** Make the clamp conditional — Z/W+jet processes (PPZJ, PPZQ, PPZG, PPWJ, PPWQ, PPWG) are exempt.
+
+### Build
+
+```bash
+cd jewel-2.4.0-2D-MOD/
+make            # builds jewel-2.4.0-vac, jewel-2.4.0-simple, jewel-2.4.0-2D
+```
+
+Hydro profiles are symlinked from `hydro/sample/` (same as the unmodified install).
 
 ## JEWEL 2.2.0
 

@@ -572,7 +572,11 @@ C--default settings
 	ptfac=1.
 	ftfac=1.d0
 
-	if (ptmin.lt.3.d0) ptmin = 3.d0
+	if ((collider.ne.'PPZJ').and.(collider.ne.'PPZQ')
+     &	  .and.(collider.ne.'PPZG').and.(collider.ne.'PPWJ')
+     &	  .and.(collider.ne.'PPWQ').and.(collider.ne.'PPWG')) then
+	  if (ptmin.lt.3.d0) ptmin = 3.d0
+	endif
 	if (.not.writescatcen) writedummies = .false.
 
 	OPEN(unit=logfid,file=LOGFILE,status='unknown')

@@ -6,7 +6,8 @@ Monte Carlo event generation for Z+jet production in pp and pPb collisions using
 
 ```
 jewel_workspace/
-├── jewel-2.4.0-2D/    Main workspace: vacuum + 2D hydro medium executables
+├── jewel-2.4.0-2D/    Main workspace: vacuum + 2D hydro medium executables (unmodified upstream)
+├── jewel-2.4.0-2D-MOD/ Modified JEWEL 2.4.0 with PPZJ bug fixes (see CHANGES.diff)
 ├── jewel-2.2.0/       Older JEWEL version (vacuum only, for cross-version validation)
 ├── convert/           HepMC→ROOT converter (ConvertHepMCToRoot)
 ├── validation/        Validation/comparison tools, run scripts, plots, ROOT files
@@ -24,9 +25,12 @@ jewel_workspace/
 ```bash
 cd jewel-2.4.0-2D/
 make            # builds jewel-2.4.0-vac, jewel-2.4.0-simple, jewel-2.4.0-2D
+
+cd jewel-2.4.0-2D-MOD/
+make            # same executables, with PPZJ bug fixes
 ```
 
-Fortran source, links against LHAPDF at `lhapdf/lib/`.
+Fortran source, links against LHAPDF at `lhapdf/lib/`. The MOD build should be used for all PPZJ physics analysis — the unmodified 2.4.0 has zero parton shower evolution for Z/W+jet processes.
 
 ### Converter
 
@@ -48,7 +52,8 @@ Both use C++ with ROOT 6.34.04 at `/raid5/root/root-v6.34.04/root/`.
 
 Before running JEWEL:
 ```bash
-cd jewel-2.4.0-2D/ && source setup.sh
+cd jewel-2.4.0-2D/ && source setup.sh      # unmodified
+cd jewel-2.4.0-2D-MOD/ && source setup.sh   # modified (preferred for PPZJ)
 ```
 
 Before running conversion/validation tools:
@@ -77,6 +82,14 @@ JEWEL 2.2.0 templates in `jewel-2.2.0/korinna/`:
 | `ZJet_pp.dat` | pp vacuum | 5020 GeV | 15 | 4.5 |
 | `ZJet_pp_v2.dat` | pp vacuum | 5020 GeV | 0 | 1.4 |
 
+JEWEL 2.4.0-2D-MOD templates in `jewel-2.4.0-2D-MOD/korinna/`:
+
+| Template | System | Energy | PTMIN | WEXPO | Recoils | Executable |
+|----------|--------|--------|-------|-------|---------|------------|
+| `ZJet_pp8160v3.dat` | pp vacuum | 8160 GeV | 0 (unclamped) | 1.4 | n/a | jewel-2.4.0-vac |
+| `ZJet_pPb_v2.dat` | pPb hydro | 8160 GeV | 0 (unclamped) | 1.4 | on | jewel-2.4.0-2D |
+| `ZJet_pPb_v3.dat` | pPb hydro | 8160 GeV | 0 (unclamped) | 1.4 | off | jewel-2.4.0-2D |
+
 Placeholders: `xxxx` → job/bin ID, `yyyy` → events per bin (pPb only).
 
 ### Generation scripts (`jewel-2.4.0-2D/`)
@@ -92,6 +105,14 @@ Placeholders: `xxxx` → job/bin ID, `yyyy` → events per bin (pPb only).
 | `genPPb2MZJet.sh` | pPb 8160 | 2M (100 bins x 20000) | `ZJet_pPb.dat` | 10 parallel |
 | `genPPbv2ZJet.sh` | pPb 8160 | 500k (100 bins x 5000) | `ZJet_pPb_v2.dat` | 5 parallel |
 
+JEWEL 2.4.0-2D-MOD scripts in `jewel-2.4.0-2D-MOD/`:
+
+| Script | System | Events | Config | Parallelism |
+|--------|--------|--------|--------|-------------|
+| `genPP8160v3ZJet.sh` | pp 8160 | 500k (500 x 1000) | `ZJet_pp8160v3.dat` | 5 parallel |
+| `genPPbv2ZJet.sh` | pPb 8160 (recoils on) | 500k (100 bins x 5000) | `ZJet_pPb_v2.dat` | 5 parallel |
+| `genPPbv3ZJet.sh` | pPb 8160 (recoils off) | 500k (100 bins x 5000) | `ZJet_pPb_v3.dat` | 5 parallel |
+
 JEWEL 2.2.0 scripts in `jewel-2.2.0/`:
 
 | Script | Events | Config |
@@ -105,9 +126,14 @@ Common to all runs:
 - PROCESS PPZJ, ISOCHANNEL PP, HADRO T
 - PDFSET 10042 (nCTEQ15 / cteq6l1), PTMAX 1200
 - MASS 1, NPROTON 1 (2.4.0) or NSET 0 (2.2.0) — no nuclear PDF
-- pPb only: KEEPRECOILS T, COMPRESS T, WRITESCATCEN T, WRITEDUMMIES T
+- pPb with recoils: KEEPRECOILS T, COMPRESS T, WRITESCATCEN T, WRITEDUMMIES T
+- pPb without recoils: KEEPRECOILS F (no hole subtraction needed)
 
 PTMIN and WEXPO vary by sample — see config templates table above. WEXPO controls importance sampling via `pT_hat^WEXPO`; all events carry EventWeight to compensate. WEXPO=1.4 with PTMIN=0 gives roughly equal statistics in Z pT bins [0,30) and [30,500] GeV (see `wexpo_study.md` in the working install).
+
+**PTMIN clamp:** Unmodified JEWEL 2.4.0 and 2.2.0 clamp PTMIN to a minimum of 3 GeV (line 575 of `jewel-2.4.0.f`). All PTMIN=0 configs in unmodified builds actually run at PTMIN=3. The 2.4.0-2D-MOD build removes this clamp for Z/W+jet processes (where the Z mass regulates the cross section). Files marked "unclamped" in the produced ROOT files table use the true PTMIN=0.
+
+**MSTP(125)=2 bug:** Unmodified JEWEL 2.4.0 sets `MSTP(125)=2` which disables the parton shower for all non-PPJJ processes (zero splittings, zero medium scatterings). The 2.4.0-2D-MOD build fixes this. See `jewel-2.4.0-2D-MOD/CHANGES.diff` for details.
 
 ### Hydro profiles
 
@@ -141,12 +167,13 @@ Last argument is always the output. Shell globs work for input files.
 - `|eta| < 2.4`
 - `pT > 0.5 GeV`
 
-### Hole subtraction (pPb)
+### Hole subtraction (pPb with KEEPRECOILS T)
 
 - `trackWeight` values: +1 (final-state), 0 (intermediate/neutral), -1 (scattering centre holes)
-- Track fill weight for pPb: `EventWeight * (1 - 0.33 * (trackWeight < 0))`
-- Hole tracks get a 0.67 correction factor; normal tracks get 1.0
+- Standard JEWEL prescription: fill weight = `trackWeight * EventWeight` (holes subtract)
+- FHead analysis uses a reduced subtraction: `trackWeight * EventWeight * (1 - 0.33 * (trackWeight < 0))`, giving holes 67% weight. Rationale: JEWEL holes are partonic (not hadronized), so full subtraction over-subtracts since one parton would fragment into ~3 hadrons.
 - Z histograms use EventWeight only (no hole correction)
+- pPb with KEEPRECOILS F has no holes — use `EventWeight` for all tracks
 
 ## Validation Tools (`validation/`)
 
@@ -177,17 +204,22 @@ Examples:
 
 ## Produced ROOT Files (`validation/`)
 
-| File | JEWEL | System | Energy | PTMIN | WEXPO | Events |
-|------|-------|--------|--------|-------|-------|--------|
-| `jewel_pp_220.root` | 2.2.0 | pp | 5020 | 15 | 4.5 | 2,000,000 |
-| `jewel_pp_220_v2_500k.root` | 2.2.0 | pp | 5020 | 0 | 1.4 | 500,000 |
-| `jewel_pp_240.root` | 2.4.0 | pp | 5020 | 15 | 4.5 | 1,886,306 |
-| `jewel_pp8160_2M.root` | 2.4.0 | pp | 8160 | 15 | 4.5 | 1,831,529 |
-| `jewel_pp8160v2_500k.root` | 2.4.0 | pp | 8160 | 5 | 1.2 | 468,857 |
-| `jewel_pp8160v3_500k.root` | 2.4.0 | pp | 8160 | 0 | 1.4 | 468,816 |
-| `jewel_pp8160_wexpo4p5_500k.root` | 2.4.0 | pp | 8160 | 0 | 4.5 | 472,273 |
-| `jewel_pPb_2M.root` | 2.4.0-2D | pPb | 8160 | 15 | 4.5 | 1,340,059 |
-| `jewel_pPb_v2_500k.root` | 2.4.0-2D | pPb | 8160 | 0 | 1.4 | 468,584 |
+| File | JEWEL | System | Energy | PTMIN | WEXPO | Recoils | Events |
+|------|-------|--------|--------|-------|-------|---------|--------|
+| `jewel_pp_220.root` | 2.2.0 | pp | 5020 | 15 | 4.5 | n/a | 2,000,000 |
+| `jewel_pp_220_v2_500k.root` | 2.2.0 | pp | 5020 | 0 | 1.4 | n/a | 500,000 |
+| `jewel_pp_240.root` | 2.4.0 | pp | 5020 | 15 | 4.5 | n/a | 1,886,306 |
+| `jewel_pp8160_2M.root` | 2.4.0 | pp | 8160 | 15 | 4.5 | n/a | 1,831,529 |
+| `jewel_pp8160v2_500k.root` | 2.4.0 | pp | 8160 | 5 | 1.2 | n/a | 468,857 |
+| `jewel_pp8160v3_500k.root` | 2.4.0 | pp | 8160 | 0 | 1.4 | n/a | 468,816 |
+| `jewel_pp8160_wexpo4p5_500k.root` | 2.4.0 | pp | 8160 | 0 | 4.5 | n/a | 472,273 |
+| `jewel_pPb_2M.root` | 2.4.0-2D | pPb | 8160 | 15 | 4.5 | on | 1,340,059 |
+| `jewel_pPb_v2_500k.root` | 2.4.0-2D | pPb | 8160 | 0 | 1.4 | on | 468,584 |
+| `jewel_pp8160v3_MOD_500k.root` | 2.4.0-2D-MOD | pp | 8160 | 0 (unclamped) | 1.4 | n/a | 500,000 |
+| `jewel_pPb_v2_MOD_500k.root` | 2.4.0-2D-MOD | pPb | 8160 | 0 (unclamped) | 1.4 | on | 500,000 |
+| `jewel_pPb_v3_MOD_norecoil_500k.root` | 2.4.0-2D-MOD | pPb | 8160 | 0 (unclamped) | 1.4 | off | 500,000 |
+
+Unmodified 2.4.0/2.4.0-2D samples have no parton shower evolution for PPZJ and should not be used for physics analysis. All PTMIN=0 entries without "(unclamped)" were actually PTMIN=3 due to the clamp bug.
 
 Reference files (external, in workspace root): `jewel_pp-v9.root` (2M events, pp 5020 GeV), `jewel_pp-v7.root` (100k events, pp 5020 GeV). Generation settings unknown.
 
@@ -195,6 +227,6 @@ Reference files (external, in workspace root): `jewel_pp-v9.root` (2M events, pp
 
 - ROOT needs `local_deps/lib/x86_64-linux-gnu` in LD_LIBRARY_PATH for libpcre
 - WEXPO 4.5 gives ~94% acceptance for pp vacuum (1000 requested → ~940 good events)
-- pPb with Trajectum 8.16 TeV hydro also gives ~94% acceptance — the medium is too dilute for jet-medium scatterings (0 scatterings across all Ncoll bins)
+- pPb with Trajectum 8.16 TeV hydro gives ~94% acceptance. With the MOD build, pPb produces ~19 scatterings/event and ~2.5 splittings/event. The unmodified 2.4.0 showed 0 scatterings due to the MSTP(125)=2 bug
 - The snap-installed ROOT (`/snap/root-framework/`) conflicts with the local install — always set PATH/LD_LIBRARY_PATH explicitly
 - HepMC conversion from 2000 files uses shell glob expansion (~140 KB args, within ARG_MAX)

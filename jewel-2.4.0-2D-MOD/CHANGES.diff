@@ -68,3 +68,29 @@ Verification (1000 events, pPb 8160 GeV with Trajectum 2D hydro, bin .10):
 +	   if (k(ipart,2).eq.22) k(ipart,1)=4
 + 283    CONTINUE
 +	  endif
+
+=======================================================================
+
+Remove PTMIN=3 clamp for Z/W+jet processes
+
+Line 575 unconditionally clamps PTMIN to a minimum of 3 GeV. This protects
+divergent processes like PPJJ (1/pT^4 singularity at low pT-hat), but is
+unnecessary for Z/W+jet processes where the Z/W mass regulates the cross
+section. The clamp silently overrode PTMIN=0 configs to PTMIN=3, excluding
+all events with pT-hat < 3 GeV and cutting into the low Z pT spectrum.
+
+The fix makes the clamp conditional: Z/W+jet processes (PPZJ, PPZQ, PPZG,
+PPWJ, PPWQ, PPWG) are exempt; all other processes retain the 3 GeV floor.
+
+Verification (1000 events, pp vacuum 8160 GeV, PTMIN=0, WEXPO=1.4):
+  Before fix:  PTMIN clamped to 3.0, splittings=1.83
+  After fix:   PTMIN=0.0, splittings=1.83, 0 discarded events
+
+@@ -573,7 +573,11 @@
+ 	if (ptmax.lt.ptmin) ptmax=sqrts
+-	if (ptmin.lt.3.d0) ptmin = 3.d0
++	if ((collider.ne.'PPZJ').and.(collider.ne.'PPZQ')
++     &	  .and.(collider.ne.'PPZG').and.(collider.ne.'PPWJ')
++     &	  .and.(collider.ne.'PPWQ').and.(collider.ne.'PPWG')) then
++	  if (ptmin.lt.3.d0) ptmin = 3.d0
++	endif
