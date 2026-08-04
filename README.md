@@ -35,12 +35,13 @@ All ROOT files are in `validation/`. The reference files `jewel_pp-v9.root` and 
 | `jewel_pp8160v3_MOD_500k.root` | 2.4.0-2D-MOD | pp | 8160 | 0 (unclamped) | 1200 | 1.4 | 10042 | off | n/a | 500,000 | `ZJet_pp8160v3.dat` |
 | `jewel_pPb_v2_MOD_500k.root` | 2.4.0-2D-MOD | pPb | 8160 | 0 (unclamped) | 1200 | 1.4 | 10042 | off | on | 500,000 | `ZJet_pPb_v2.dat` |
 | `jewel_pPb_v3_MOD_norecoil_500k.root` | 2.4.0-2D-MOD | pPb | 8160 | 0 (unclamped) | 1200 | 1.4 | 10042 | off | off | 500,000 | `ZJet_pPb_v3.dat` |
+| `jewel_pPb_v4_MOD_500k.root` | 2.4.0-2D-MOD | pPb | 8160 | 0 (unclamped) | 1200 | 1.4 | 10042 | off | on | ~500,000 | `ZJet_pPb_v4.dat` |
 | `jewel_pp-v9.root` (ref) | ? | pp | 5020 | ? | ? | ? | ? | ? | ? | 2,000,000 | FHead external |
 | `jewel_pp-v7.root` (ref) | ? | pp | 5020 | ? | ? | ? | ? | ? | ? | 100,000 | FHead external |
 
 All pp vacuum runs use PROCESS PPZJ, ISOCHANNEL PP, HADRO T. pPb runs with recoils on additionally use KEEPRECOILS T, COMPRESS T, WRITESCATCEN T, WRITEDUMMIES T. The no-recoil pPb run uses KEEPRECOILS F with no hole subtraction needed.
 
-**2.4.0-2D-MOD** fixes two bugs: (1) `MSTP(125)=2` disabled the parton shower for PPZJ events (zero splittings, zero medium scatterings), and (2) PTMIN was unconditionally clamped to 3 GeV, silently overriding PTMIN=0 configs for Z/W+jet processes (where the Z mass regulates the cross section). Files marked "unclamped" use the true PTMIN=0 — all other PTMIN=0 entries were actually PTMIN=3. See `jewel-2.4.0-2D-MOD/CHANGES.diff` for details. Unmodified 2.4.0/2.4.0-2D samples above have no parton shower evolution and should not be used for physics analysis.
+**2.4.0-2D-MOD** fixes three bugs: (1) `MSTP(125)=2` disabled the parton shower for PPZJ events (zero splittings, zero medium scatterings), (2) PTMIN was unconditionally clamped to 3 GeV, silently overriding PTMIN=0 configs for Z/W+jet processes (where the Z mass regulates the cross section), and (3) `PICKVTX` sampled vertex positions from the wrong array (`ncollNZ` instead of `ncollpDist`), pinning 5-27% of vertices at the fireball center (0,0). Files marked "unclamped" use the true PTMIN=0 — all other PTMIN=0 entries were actually PTMIN=3. The v4 sample additionally deduplicates the 100 hydro directories (57 unique Trajectum events) and weights events proportional to Ncoll. See `jewel-2.4.0-2D-MOD/CHANGES.diff` for details. Unmodified 2.4.0/2.4.0-2D samples above have no parton shower evolution and should not be used for physics analysis.
 
 WEXPO controls importance sampling via `pT_hat^WEXPO`. All events carry EventWeight to compensate. WEXPO=1.4 with PTMIN=0 gives roughly equal raw event counts in Z pT bins [0,30) and [30,500] GeV (see `jewel-2.4.0-2D/wexpo_study.md`).
 

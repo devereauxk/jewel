@@ -94,3 +94,34 @@ Verification (1000 events, pp vacuum 8160 GeV, PTMIN=0, WEXPO=1.4):
 +     &	  .and.(collider.ne.'PPWQ').and.(collider.ne.'PPWG')) then
 +	  if (ptmin.lt.3.d0) ptmin = 3.d0
 +	endif
+
+=======================================================================
+
+Fix PICKVTX vertex sampling bug in Ncoll-histogram mode (medium-2D.f)
+
+The PICKVTX subroutine samples the hard-scattering vertex position from
+the Ncoll histogram. In the Ncoll-histogram branch, it indexed ncollNZ
+using rndIndex = int(pyr(0) * ncollSum), which has two bugs:
+
+  1. rndIndex ranges from 0 to ncollSum-1. Index 0 is out of bounds for
+     Fortran 1-based arrays — always triggers for single-collision events.
+  2. ncollSum (total binary collisions) is typically larger than nzc-1
+     (count of non-zero cells in ncollNZ). When rndIndex >= nzc, the code
+     accesses zero-initialized memory, placing the vertex at (0,0) — the
+     fireball center — for 5-27% of events per hydro profile.
+
+READNCOLL already builds ncollpDist(1:ncollSum, 1:2) — one row per
+binary collision, with cells duplicated proportionally to their Ncoll
+count — but this array was never referenced (dead code). The fix
+switches PICKVTX to use ncollpDist with correct 1-based indexing.
+
+--- jewel-2.4.0-2D/medium-2D.f
++++ jewel-2.4.0-2D-MOD/medium-2D.f
+@@ -421,1 +421,1 @@
+-         rndIndex = int(pyr(0) * ncollSum)
++         rndIndex = int(pyr(0) * ncollSum) + 1
+@@ -428,2 +428,2 @@
+-         X = ncollNZ(rndIndex,1)+ (pyr(0)-0.5) * dx
+-         Y = ncollNZ(rndIndex,2)+ (pyr(0)-0.5) * dy
++         X = ncollpDist(rndIndex,1)+ (pyr(0)-0.5) * dx
++         Y = ncollpDist(rndIndex,2)+ (pyr(0)-0.5) * dy

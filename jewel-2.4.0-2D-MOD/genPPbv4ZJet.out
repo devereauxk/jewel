@@ -1,0 +1,1722 @@
+Generating 500000 pPb 8160 GeV events with JEWEL 2.4.0-MOD + 2D hydro (PICKVTX fix)
+PTMIN=0, PTMAX=1200, WEXPO=1.4, KEEPRECOILS=T
+Deduplicated hydro profiles, events weighted proportional to Ncoll
+Started: Mon Aug  3 03:57:25 PM EDT 2026
+  Skipping duplicate: 2.10 (same as .10)
+  Skipping duplicate: 2.15 (same as .15)
+  Skipping duplicate: 2.17 (same as .17)
+  Skipping duplicate: 2.20 (same as .20)
+  Skipping duplicate: .25 (same as 2.25)
+  Skipping duplicate: 3.1 (same as 2.1)
+  Skipping duplicate: 3.10 (same as .10)
+  Skipping duplicate: 3.23 (same as 2.23)
+  Skipping duplicate: 3.25 (same as 2.25)
+  Skipping duplicate: 3.29 (same as 2.29)
+  Skipping duplicate: 3.30 (same as .30)
+  Skipping duplicate: 3.31 (same as 2.31)
+  Skipping duplicate: 3.32 (same as 2.32)
+  Skipping duplicate: 3.37 (same as 2.37)
+  Skipping duplicate: 3.43 (same as 2.43)
+  Skipping duplicate: 3.50 (same as 2.50)
+  Skipping duplicate: 3.53 (same as 2.53)
+  Skipping duplicate: 3.54 (same as 2.54)
+  Skipping duplicate: 3.58 (same as 2.58)
+  Skipping duplicate: 3.6 (same as 2.6)
+  Skipping duplicate: 3.61 (same as 2.61)
+  Skipping duplicate: 3.62 (same as 2.62)
+  Skipping duplicate: 3.72 (same as 2.72)
+  Skipping duplicate: 3.75 (same as 2.75)
+  Skipping duplicate: 3.84 (same as 2.84)
+  Skipping duplicate: 3.94 (same as 2.94)
+  Skipping duplicate: .4 (same as 3.4)
+  Skipping duplicate: .41 (same as 2.41)
+  Skipping duplicate: .50 (same as 2.50)
+  Skipping duplicate: .53 (same as 2.53)
+  Skipping duplicate: .54 (same as 2.54)
+  Skipping duplicate: .58 (same as 2.58)
+  Skipping duplicate: .6 (same as 2.6)
+  Skipping duplicate: .61 (same as 2.61)
+  Skipping duplicate: .62 (same as 2.62)
+  Skipping duplicate: .64 (same as 2.64)
+  Skipping duplicate: .72 (same as 2.72)
+  Skipping duplicate: .78 (same as 2.78)
+  Skipping duplicate: .8 (same as 3.8)
+  Skipping duplicate: .84 (same as 2.84)
+  Skipping duplicate: .85 (same as 3.85)
+  Skipping duplicate: .92 (same as 3.92)
+  Skipping duplicate: .95 (same as 2.95)
+
+Found 57 unique hydro profiles (from 100 total directories)
+Total Ncoll across unique profiles: 532
+
+[1/57] Launching bin .10 (Ncoll=17, 15977 events)...
+[2/57] Launching bin .13 (Ncoll=4, 3759 events)...
+[3/57] Launching bin .15 (Ncoll=6, 5639 events)...
+[4/57] Launching bin .17 (Ncoll=8, 7519 events)...
+[5/57] Launching bin .20 (Ncoll=12, 11278 events)...
+ Reading parameters from parameters/ZJet_pPb_v4_.10.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/.10/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           17
+ The hydro profiles I will read are in hydro/pPb/sample/.10                                                                                                                                                                                                                                                                                        
+ Reading parameters from parameters/ZJet_pPb_v4_.13.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/.13/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            5
+ The hydro profiles I will read are in hydro/pPb/sample/.13                                                                                                                                                                                                                                                                                        
+ Reading parameters from parameters/ZJet_pPb_v4_.17.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/.17/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            9
+ The hydro profiles I will read are in hydro/pPb/sample/.17                                                                                                                                                                                                                                                                                        
+ Reading parameters from parameters/ZJet_pPb_v4_.15.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/.15/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            7
+ The hydro profiles I will read are in hydro/pPb/sample/.15                                                                                                                                                                                                                                                                                        
+ Reading parameters from parameters/ZJet_pPb_v4_.20.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/.20/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           13
+ The hydro profiles I will read are in hydro/pPb/sample/.20                                                                                                                                                                                                                                                                                        
+ Try to read temps: I have opened hydro/pPb/sample/.13/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           13
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.21329500000000001     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/.15/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           23
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.31737500000000002     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/.17/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           26
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.28969299999999998     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/.20/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           28
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.34539199999999998     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/.10/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           31
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.32429999999999998     
+ Done reading temperatures.
+ 
+ Try to read velocities: I have opened hydro/pPb/sample/.13/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           13
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.59590055940987330     
+ Max neff:    5.7102367488866004E-002
+ rapmax:   0.68676624109312945     
+ etamax2:    3.0999999046325684     
+ natmdmin:    4.9858171146940564E-002
+ taus(ntauvals):    1.8200000000000001     
+ Try to read velocities: I have opened hydro/pPb/sample/.17/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           26
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.69496355463721982     
+ Max neff:   0.14103577543229739     
+ rapmax:   0.85749262771650780     
+ etamax2:    3.0999999046325684     
+ natmdmin:    5.9140075099403125E-002
+ taus(ntauvals):    3.1400000000000001     
+ Try to read velocities: I have opened hydro/pPb/sample/.15/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           23
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.74867982366780128     
+ Max neff:   0.19776196331253598     
+ rapmax:   0.96994433329531671     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.6178821170439481E-002
+ taus(ntauvals):    2.8300000000000001     
+ Try to read velocities: I have opened hydro/pPb/sample/.20/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           28
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.72653485290452513     
+ Max neff:   0.22961263479391955     
+ rapmax:   0.92134876141811284     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.3039714582855427E-002
+ taus(ntauvals):    3.3399999999999999     
+ Try to read velocities: I have opened hydro/pPb/sample/.10/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           31
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.68498960468097625     
+ Max neff:   0.18219942238992526     
+ rapmax:   0.83845451707237439     
+ etamax2:    3.0999999046325684     
+ natmdmin:    5.8024809764009415E-002
+ taus(ntauvals):    3.6400000000000001     
+  Completed 5 / 57 profiles (Mon Aug  3 04:02:58 PM EDT 2026)
+[6/57] Launching bin 2.1 (Ncoll=11, 10338 events)...
+[7/57] Launching bin 2.2 (Ncoll=5, 4699 events)...
+[8/57] Launching bin 2.22 (Ncoll=15, 14098 events)...
+[9/57] Launching bin 2.23 (Ncoll=9, 8459 events)...
+[10/57] Launching bin 2.25 (Ncoll=20, 18797 events)...
+ Reading parameters from parameters/ZJet_pPb_v4_2.1.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.1/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           12
+ The hydro profiles I will read are in hydro/pPb/sample/2.1                                                                                                                                                                                                                                                                                        
+ Reading parameters from parameters/ZJet_pPb_v4_2.2.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.2/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            6
+ The hydro profiles I will read are in hydro/pPb/sample/2.2                                                                                                                                                                                                                                                                                        
+ Reading parameters from parameters/ZJet_pPb_v4_2.22.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.22/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           13
+ The hydro profiles I will read are in hydro/pPb/sample/2.22                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.23.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.23/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           10
+ The hydro profiles I will read are in hydro/pPb/sample/2.23                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.25.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.25/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           20
+ The hydro profiles I will read are in hydro/pPb/sample/2.25                                                                                                                                                                                                                                                                                       
+ Try to read temps: I have opened hydro/pPb/sample/2.2/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           21
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.28776400000000002     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.23/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           24
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.28549700000000000     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.1/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           29
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.31946099999999999     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.22/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           35
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.35985299999999998     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.25/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           35
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.33271099999999998     
+ Done reading temperatures.
+ 
+ Try to read velocities: I have opened hydro/pPb/sample/2.2/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           21
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.73647159314260047     
+ Max neff:   0.14399026986981256     
+ rapmax:   0.94272467264179760     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.4401751452432349E-002
+ taus(ntauvals):    2.6299999999999999     
+ Try to read velocities: I have opened hydro/pPb/sample/2.23/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           24
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.70393431985164634     
+ Max neff:   0.13208511598152281     
+ rapmax:   0.87505691992786172     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.0188004790740129E-002
+ taus(ntauvals):    2.9399999999999999     
+ Try to read velocities: I have opened hydro/pPb/sample/2.1/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           29
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.69109855914550999     
+ Max neff:   0.19059813122777042     
+ rapmax:   0.85005568367525819     
+ etamax2:    3.0999999046325684     
+ natmdmin:    5.8701885087214495E-002
+ taus(ntauvals):    3.4399999999999999     
+ Try to read velocities: I have opened hydro/pPb/sample/2.25/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           35
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.72510205712713294     
+ Max neff:   0.20677869169925692     
+ rapmax:   0.91832078965379282     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.2849120808973979E-002
+ taus(ntauvals):    4.0499999999999998     
+ Try to read velocities: I have opened hydro/pPb/sample/2.22/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           35
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.76395880862059573     
+ Max neff:   0.28422419183192005     
+ rapmax:    1.0056547778167120     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.8584799900219498E-002
+ taus(ntauvals):    4.0499999999999998     
+  Completed 10 / 57 profiles (Mon Aug  3 04:11:47 PM EDT 2026)
+[11/57] Launching bin 2.29 (Ncoll=12, 11278 events)...
+[12/57] Launching bin 2.31 (Ncoll=8, 7519 events)...
+[13/57] Launching bin 2.32 (Ncoll=13, 12218 events)...
+[14/57] Launching bin 2.37 (Ncoll=14, 13158 events)...
+[15/57] Launching bin 2.38 (Ncoll=7, 6579 events)...
+ Reading parameters from parameters/ZJet_pPb_v4_2.29.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.29/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           13
+ The hydro profiles I will read are in hydro/pPb/sample/2.29                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.31.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.31/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            8
+ The hydro profiles I will read are in hydro/pPb/sample/2.31                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.32.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.32/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           13
+ The hydro profiles I will read are in hydro/pPb/sample/2.32                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.37.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.37/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           14
+ The hydro profiles I will read are in hydro/pPb/sample/2.37                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.38.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.38/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            8
+ The hydro profiles I will read are in hydro/pPb/sample/2.38                                                                                                                                                                                                                                                                                       
+ Try to read temps: I have opened hydro/pPb/sample/2.38/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           22
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.29971799999999998     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.31/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           25
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.32651200000000002     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.29/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           28
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.27958200000000000     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.37/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           28
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.32288000000000000     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.32/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           32
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.31267400000000001     
+ Done reading temperatures.
+ 
+ Try to read velocities: I have opened hydro/pPb/sample/2.38/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           22
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.74273673352070047     
+ Max neff:   0.15518470858292852     
+ rapmax:   0.95655602409723428     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.5298703440878389E-002
+ taus(ntauvals):    2.7300000000000000     
+ Try to read velocities: I have opened hydro/pPb/sample/2.29/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           28
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.74011739566368795     
+ Max neff:   0.12211824909699681     
+ rapmax:   0.95073892571971819     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.4919957129336597E-002
+ taus(ntauvals):    3.3399999999999999     
+ Try to read velocities: I have opened hydro/pPb/sample/2.31/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           25
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.74349436533776092     
+ Max neff:   0.19939280290771227     
+ rapmax:   0.95824800121798448     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.5409280873978473E-002
+ taus(ntauvals):    3.0400000000000000     
+ Try to read velocities: I have opened hydro/pPb/sample/2.32/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           32
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.73397067203329036     
+ Max neff:   0.18510013897349742     
+ rapmax:   0.93728134275194452     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.4052143851777973E-002
+ taus(ntauvals):    3.7400000000000002     
+ Try to read velocities: I have opened hydro/pPb/sample/2.37/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           28
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.73609848345853834     
+ Max neff:   0.18437459568974560     
+ rapmax:   0.94190981678464325     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.4349294683305691E-002
+ taus(ntauvals):    3.3399999999999999     
+  Completed 15 / 57 profiles (Mon Aug  3 04:16:48 PM EDT 2026)
+[16/57] Launching bin 2.39 (Ncoll=2, 1880 events)...
+[17/57] Launching bin .24 (Ncoll=11, 10338 events)...
+[18/57] Launching bin 2.41 (Ncoll=3, 2820 events)...
+[19/57] Launching bin 2.43 (Ncoll=11, 10338 events)...
+[20/57] Launching bin 2.47 (Ncoll=4, 3759 events)...
+ Reading parameters from parameters/ZJet_pPb_v4_2.39.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.39/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            3
+ The hydro profiles I will read are in hydro/pPb/sample/2.39                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_.24.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/.24/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           11
+ The hydro profiles I will read are in hydro/pPb/sample/.24                                                                                                                                                                                                                                                                                        
+ Reading parameters from parameters/ZJet_pPb_v4_2.41.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.41/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            4
+ The hydro profiles I will read are in hydro/pPb/sample/2.41                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.43.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.43/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           12
+ The hydro profiles I will read are in hydro/pPb/sample/2.43                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.47.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.47/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            5
+ The hydro profiles I will read are in hydro/pPb/sample/2.47                                                                                                                                                                                                                                                                                       
+ Try to read temps: I have opened hydro/pPb/sample/2.39/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           16
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.23593900000000001     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.41/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           19
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.22758000000000000     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.47/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           21
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.24926599999999999     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/.24/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           26
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.34831299999999998     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.43/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           27
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.30634800000000001     
+ Done reading temperatures.
+ 
+ Try to read velocities: I have opened hydro/pPb/sample/2.39/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           16
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.68127532366657761     
+ Max neff:    8.0035340262510954E-002
+ rapmax:   0.83149012956057955     
+ etamax2:    3.0999999046325684     
+ natmdmin:    5.7622106422258547E-002
+ taus(ntauvals):    2.1299999999999999     
+ Try to read velocities: I have opened hydro/pPb/sample/2.41/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           19
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.71927517562126386     
+ Max neff:    7.4017738070527889E-002
+ rapmax:   0.90614157730378497     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.2088310460456937E-002
+ taus(ntauvals):    2.4300000000000002     
+ Try to read velocities: I have opened hydro/pPb/sample/2.47/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           21
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.67348559677100739     
+ Max neff:    9.4319218020883583E-002
+ rapmax:   0.81709492609812173     
+ etamax2:    3.0999999046325684     
+ natmdmin:    5.6798566212064319E-002
+ taus(ntauvals):    2.6299999999999999     
+ Try to read velocities: I have opened hydro/pPb/sample/2.43/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           27
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.71660499232492092     
+ Max neff:   0.17091554000602877     
+ rapmax:   0.90063103313363091     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.1747111043849813E-002
+ taus(ntauvals):    3.2400000000000002     
+ Try to read velocities: I have opened hydro/pPb/sample/.24/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           26
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.78262264714803642     
+ Max neff:   0.25305015670449332     
+ rapmax:    1.0521030798144355     
+ etamax2:    3.0999999046325684     
+ natmdmin:    7.1845590259269024E-002
+ taus(ntauvals):    3.1400000000000001     
+  Completed 20 / 57 profiles (Mon Aug  3 04:22:09 PM EDT 2026)
+[21/57] Launching bin 2.50 (Ncoll=10, 9398 events)...
+[22/57] Launching bin 2.53 (Ncoll=18, 16917 events)...
+[23/57] Launching bin 2.54 (Ncoll=8, 7519 events)...
+[24/57] Launching bin 2.58 (Ncoll=17, 15977 events)...
+[25/57] Launching bin 2.6 (Ncoll=20, 18797 events)...
+ Reading parameters from parameters/ZJet_pPb_v4_2.50.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.50/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            9
+ The hydro profiles I will read are in hydro/pPb/sample/2.50                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.53.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.53/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           17
+ The hydro profiles I will read are in hydro/pPb/sample/2.53                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.54.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.54/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            9
+ The hydro profiles I will read are in hydro/pPb/sample/2.54                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.58.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.58/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           18
+ The hydro profiles I will read are in hydro/pPb/sample/2.58                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.6.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.6/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           21
+ The hydro profiles I will read are in hydro/pPb/sample/2.6                                                                                                                                                                                                                                                                                        
+ Try to read temps: I have opened hydro/pPb/sample/2.50/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           27
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.31795699999999999     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.54/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           29
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.27529399999999998     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.58/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           31
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.34291899999999997     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.6/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           33
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.38514500000000002     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.53/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           36
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.32056099999999998     
+ Done reading temperatures.
+ 
+ Try to read velocities: I have opened hydro/pPb/sample/2.54/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           29
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.74391335653891844     
+ Max neff:   0.13258623116615534     
+ rapmax:   0.95918554205667772     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.5470633501830480E-002
+ taus(ntauvals):    3.4399999999999999     
+ Try to read velocities: I have opened hydro/pPb/sample/2.50/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           27
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.71353764751132787     
+ Max neff:   0.18475097365184029     
+ rapmax:   0.89435409479868144     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.1360742111024935E-002
+ taus(ntauvals):    3.2400000000000002     
+ Try to read velocities: I have opened hydro/pPb/sample/2.53/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           36
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.72471349969280963     
+ Max neff:   0.19708281666306177     
+ rapmax:   0.91750192694425514     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.2797677073169314E-002
+ taus(ntauvals):    4.1500000000000004     
+ Try to read velocities: I have opened hydro/pPb/sample/2.58/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           31
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.69727837122157321     
+ Max neff:   0.23220391804865700     
+ rapmax:   0.86198381135451729     
+ etamax2:    3.0999999046325684     
+ natmdmin:    5.9406281380222137E-002
+ taus(ntauvals):    3.6400000000000001     
+ Try to read velocities: I have opened hydro/pPb/sample/2.6/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           33
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.77688017514221586     
+ Max neff:   0.33380635219821331     
+ rapmax:    1.0374527182736468     
+ etamax2:    3.0999999046325684     
+ natmdmin:    7.0800699092493133E-002
+ taus(ntauvals):    3.8399999999999999     
+  Completed 25 / 57 profiles (Mon Aug  3 04:37:02 PM EDT 2026)
+[26/57] Launching bin 2.61 (Ncoll=21, 19737 events)...
+[27/57] Launching bin 2.62 (Ncoll=15, 14098 events)...
+[28/57] Launching bin 2.64 (Ncoll=17, 15977 events)...
+[29/57] Launching bin 2.7 (Ncoll=7, 6579 events)...
+[30/57] Launching bin 2.72 (Ncoll=11, 10338 events)...
+ Reading parameters from parameters/ZJet_pPb_v4_2.61.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.61/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           20
+ The hydro profiles I will read are in hydro/pPb/sample/2.61                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.62.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.62/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           12
+ The hydro profiles I will read are in hydro/pPb/sample/2.62                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.64.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.64/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           17
+ The hydro profiles I will read are in hydro/pPb/sample/2.64                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.7.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.7/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            8
+ The hydro profiles I will read are in hydro/pPb/sample/2.7                                                                                                                                                                                                                                                                                        
+ Reading parameters from parameters/ZJet_pPb_v4_2.72.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.72/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           12
+ The hydro profiles I will read are in hydro/pPb/sample/2.72                                                                                                                                                                                                                                                                                       
+ Try to read temps: I have opened hydro/pPb/sample/2.7/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           22
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.30590699999999998     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.61/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           31
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.33192899999999997     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.72/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           31
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.30547900000000000     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.62/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           33
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.34230300000000002     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.64/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           33
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.33658600000000000     
+ Done reading temperatures.
+ 
+ Try to read velocities: I have opened hydro/pPb/sample/2.7/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           22
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.71001480432523378     
+ Max neff:   0.17050021619581071     
+ rapmax:   0.88721371733963461     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.0924163773156681E-002
+ taus(ntauvals):    2.7300000000000000     
+ Try to read velocities: I have opened hydro/pPb/sample/2.72/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           31
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.77828856518132139     
+ Max neff:   0.16683259610580728     
+ rapmax:    1.0410150036740162     
+ etamax2:    3.0999999046325684     
+ natmdmin:    7.1053361149196706E-002
+ taus(ntauvals):    3.6400000000000001     
+ Try to read velocities: I have opened hydro/pPb/sample/2.64/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           33
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.71879710552074427     
+ Max neff:   0.22395552505960348     
+ rapmax:   0.90515175734624964     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.2026884616911568E-002
+ taus(ntauvals):    3.8399999999999999     
+ Try to read velocities: I have opened hydro/pPb/sample/2.61/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           31
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.68026158593588104     
+ Max neff:   0.20172979300648475     
+ rapmax:   0.82960078037293006     
+ etamax2:    3.0999999046325684     
+ natmdmin:    5.7513340922657627E-002
+ taus(ntauvals):    3.6400000000000001     
+ Try to read velocities: I have opened hydro/pPb/sample/2.62/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           33
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.76052597963843416     
+ Max neff:   0.24565298014760770     
+ rapmax:   0.99746147948344877     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.8025159952756278E-002
+ taus(ntauvals):    3.8399999999999999     
+  Completed 30 / 57 profiles (Mon Aug  3 04:44:37 PM EDT 2026)
+[31/57] Launching bin 2.75 (Ncoll=8, 7519 events)...
+[32/57] Launching bin 2.78 (Ncoll=3, 2820 events)...
+[33/57] Launching bin 2.84 (Ncoll=10, 9398 events)...
+[34/57] Launching bin 2.89 (Ncoll=1, 940 events)...
+[35/57] Launching bin 2.90 (Ncoll=7, 6579 events)...
+ Reading parameters from parameters/ZJet_pPb_v4_2.78.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.78/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            4
+ The hydro profiles I will read are in hydro/pPb/sample/2.78                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.75.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.75/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            9
+ The hydro profiles I will read are in hydro/pPb/sample/2.75                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.84.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.84/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           11
+ The hydro profiles I will read are in hydro/pPb/sample/2.84                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.89.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.89/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            2
+ The hydro profiles I will read are in hydro/pPb/sample/2.89                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.90.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.90/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            8
+ The hydro profiles I will read are in hydro/pPb/sample/2.90                                                                                                                                                                                                                                                                                       
+ Try to read temps: I have opened hydro/pPb/sample/2.89/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:            4
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.17388100000000001     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.78/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           15
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.24343899999999999     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.75/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           26
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.30159500000000000     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.90/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           26
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.31778000000000001     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.84/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           27
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.32104300000000002     
+ Done reading temperatures.
+ 
+ Try to read velocities: I have opened hydro/pPb/sample/2.89/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:            4
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.29622803912695367     
+ Max neff:    3.4911040313082023E-002
+ rapmax:   0.30537971653988782     
+ etamax2:    3.0999999046325684     
+ natmdmin:    3.4048836889210836E-002
+ taus(ntauvals):   0.91000000000000003     
+ Try to read velocities: I have opened hydro/pPb/sample/2.78/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           15
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.64381298108223939     
+ Max neff:    8.5615857618272631E-002
+ rapmax:   0.76465894186414185     
+ etamax2:    3.0999999046325684     
+ natmdmin:    5.3897015128367781E-002
+ taus(ntauvals):    2.0299999999999998     
+ Try to read velocities: I have opened hydro/pPb/sample/2.75/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           26
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.68621138557225936     
+ Max neff:   0.14933693185099076     
+ rapmax:   0.84075997546348014     
+ etamax2:    3.0999999046325684     
+ natmdmin:    5.8158737872091922E-002
+ taus(ntauvals):    3.1400000000000001     
+ Try to read velocities: I have opened hydro/pPb/sample/2.90/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           26
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.71995663389540343     
+ Max neff:   0.19880614064170390     
+ rapmax:   0.90755494325820396     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.2176126007763170E-002
+ taus(ntauvals):    3.1400000000000001     
+ Try to read velocities: I have opened hydro/pPb/sample/2.84/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           27
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.72852541969172224     
+ Max neff:   0.19165531988811685     
+ rapmax:   0.92557772866723498     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.3306871972989842E-002
+ taus(ntauvals):    3.2400000000000002     
+  Completed 35 / 57 profiles (Mon Aug  3 04:47:42 PM EDT 2026)
+[36/57] Launching bin 2.94 (Ncoll=9, 8459 events)...
+[37/57] Launching bin 2.95 (Ncoll=16, 15038 events)...
+[38/57] Launching bin 2.97 (Ncoll=4, 3759 events)...
+[39/57] Launching bin .30 (Ncoll=17, 15977 events)...
+[40/57] Launching bin 3.0 (Ncoll=12, 11278 events)...
+ Reading parameters from parameters/ZJet_pPb_v4_2.94.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.94/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           10
+ The hydro profiles I will read are in hydro/pPb/sample/2.94                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.95.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.95/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           15
+ The hydro profiles I will read are in hydro/pPb/sample/2.95                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_2.97.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/2.97/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            5
+ The hydro profiles I will read are in hydro/pPb/sample/2.97                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_.30.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/.30/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           16
+ The hydro profiles I will read are in hydro/pPb/sample/.30                                                                                                                                                                                                                                                                                        
+ Reading parameters from parameters/ZJet_pPb_v4_3.0.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/3.0/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           11
+ The hydro profiles I will read are in hydro/pPb/sample/3.0                                                                                                                                                                                                                                                                                        
+ Try to read temps: I have opened hydro/pPb/sample/2.97/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           15
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.24258500000000000     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.94/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           24
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.29574899999999998     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/2.95/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           29
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.33524700000000002     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/3.0/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           29
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.31478299999999998     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/.30/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           32
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.36971500000000002     
+ Done reading temperatures.
+ 
+ Try to read velocities: I have opened hydro/pPb/sample/2.97/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           15
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.67813466514033927     
+ Max neff:    8.6455892210604735E-002
+ rapmax:   0.82565244691083906     
+ etamax2:    3.0999999046325684     
+ natmdmin:    5.7286706782179231E-002
+ taus(ntauvals):    2.0299999999999998     
+ Try to read velocities: I have opened hydro/pPb/sample/2.94/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           24
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.69623332211910105     
+ Max neff:   0.14669366688003663     
+ rapmax:   0.85995273957132334     
+ etamax2:    3.0999999046325684     
+ natmdmin:    5.9285745408408669E-002
+ taus(ntauvals):    2.9399999999999999     
+ Try to read velocities: I have opened hydro/pPb/sample/3.0/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           29
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.69676767877535761     
+ Max neff:   0.17929117464643068     
+ rapmax:   0.86099055314816830     
+ etamax2:    3.0999999046325684     
+ natmdmin:    5.9347304898018691E-002
+ taus(ntauvals):    3.4399999999999999     
+ Try to read velocities: I have opened hydro/pPb/sample/2.95/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           29
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.73672312727374045     
+ Max neff:   0.21606329077763362     
+ rapmax:   0.94327456501062124     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.4437175222832807E-002
+ taus(ntauvals):    3.4399999999999999     
+ Try to read velocities: I have opened hydro/pPb/sample/.30/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           32
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.75441315490386296     
+ Max neff:   0.28103467911925017     
+ rapmax:   0.98311953139222652     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.7056509411248813E-002
+ taus(ntauvals):    3.7400000000000002     
+  Completed 40 / 57 profiles (Mon Aug  3 04:58:04 PM EDT 2026)
+[41/57] Launching bin 3.18 (Ncoll=4, 3759 events)...
+[42/57] Launching bin .33 (Ncoll=2, 1880 events)...
+[43/57] Launching bin 3.4 (Ncoll=7, 6579 events)...
+[44/57] Launching bin 3.42 (Ncoll=3, 2820 events)...
+[45/57] Launching bin 3.60 (Ncoll=6, 5639 events)...
+ Reading parameters from parameters/ZJet_pPb_v4_3.18.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/3.18/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            5
+ The hydro profiles I will read are in hydro/pPb/sample/3.18                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_.33.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/.33/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            3
+ The hydro profiles I will read are in hydro/pPb/sample/.33                                                                                                                                                                                                                                                                                        
+ Reading parameters from parameters/ZJet_pPb_v4_3.4.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/3.4/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            8
+ The hydro profiles I will read are in hydro/pPb/sample/3.4                                                                                                                                                                                                                                                                                        
+ Reading parameters from parameters/ZJet_pPb_v4_3.60.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/3.60/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            7
+ The hydro profiles I will read are in hydro/pPb/sample/3.60                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_3.42.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/3.42/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            4
+ The hydro profiles I will read are in hydro/pPb/sample/3.42                                                                                                                                                                                                                                                                                       
+ Try to read temps: I have opened hydro/pPb/sample/.33/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           11
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.20892500000000000     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/3.42/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           17
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.23145499999999999     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/3.4/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           21
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.27829700000000002     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/3.18/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           21
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.26601100000000000     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/3.60/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           23
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.27552599999999999     
+ Done reading temperatures.
+ 
+ Try to read velocities: I have opened hydro/pPb/sample/.33/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           11
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.61850075588636100     
+ Max neff:    5.7359875960095875E-002
+ rapmax:   0.72257333551304825     
+ etamax2:    3.0999999046325684     
+ natmdmin:    5.1675795104034104E-002
+ taus(ntauvals):    1.6200000000000001     
+ Try to read velocities: I have opened hydro/pPb/sample/3.42/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           17
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.72800746958270290     
+ Max neff:    7.9299423158862681E-002
+ rapmax:   0.92447483390601459     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.3237089643897640E-002
+ taus(ntauvals):    2.2300000000000000     
+ Try to read velocities: I have opened hydro/pPb/sample/3.18/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           21
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.71886600358133501     
+ Max neff:   0.10398813641032072     
+ rapmax:   0.90529432043670854     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.2035727991628535E-002
+ taus(ntauvals):    2.6299999999999999     
+ Try to read velocities: I have opened hydro/pPb/sample/3.60/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           23
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.76059290483477426     
+ Max neff:   0.12669626676607312     
+ rapmax:   0.99762023954115930     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.8035960488400299E-002
+ taus(ntauvals):    2.8300000000000001     
+ Try to read velocities: I have opened hydro/pPb/sample/3.4/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           21
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.71991335630477093     
+ Max neff:   0.13150897632022227     
+ rapmax:   0.90746509861328328     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.2170540066736654E-002
+ taus(ntauvals):    2.6299999999999999     
+  Completed 45 / 57 profiles (Mon Aug  3 04:59:24 PM EDT 2026)
+[46/57] Launching bin 3.69 (Ncoll=2, 1880 events)...
+[47/57] Launching bin 3.8 (Ncoll=7, 6579 events)...
+[48/57] Launching bin 3.85 (Ncoll=14, 13158 events)...
+[49/57] Launching bin 3.9 (Ncoll=4, 3759 events)...
+[50/57] Launching bin 3.92 (Ncoll=12, 11278 events)...
+ Reading parameters from parameters/ZJet_pPb_v4_3.69.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/3.69/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            3
+ The hydro profiles I will read are in hydro/pPb/sample/3.69                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_3.8.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/3.8/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            8
+ The hydro profiles I will read are in hydro/pPb/sample/3.8                                                                                                                                                                                                                                                                                        
+ Reading parameters from parameters/ZJet_pPb_v4_3.85.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/3.85/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           15
+ The hydro profiles I will read are in hydro/pPb/sample/3.85                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_3.9.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/3.9/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            4
+ The hydro profiles I will read are in hydro/pPb/sample/3.9                                                                                                                                                                                                                                                                                        
+ Reading parameters from parameters/ZJet_pPb_v4_3.92.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/3.92/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           13
+ The hydro profiles I will read are in hydro/pPb/sample/3.92                                                                                                                                                                                                                                                                                       
+ Try to read temps: I have opened hydro/pPb/sample/3.69/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           13
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.23186999999999999     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/3.9/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           21
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.28121200000000002     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/3.85/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           27
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.31325700000000001     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/3.92/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           26
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.28960300000000000     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/3.8/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           29
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.32994099999999998     
+ Done reading temperatures.
+ 
+ Try to read velocities: I have opened hydro/pPb/sample/3.69/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           13
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.69088690033970102     
+ Max neff:    7.9690353507000794E-002
+ rapmax:   0.84965061755714599     
+ etamax2:    3.0999999046325684     
+ natmdmin:    5.8678111757706555E-002
+ taus(ntauvals):    1.8200000000000001     
+ Try to read velocities: I have opened hydro/pPb/sample/3.9/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           21
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.73895944232920519     
+ Max neff:   0.13542205125678547     
+ rapmax:   0.94818320152366864     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.4754251463280052E-002
+ taus(ntauvals):    2.6299999999999999     
+ Try to read velocities: I have opened hydro/pPb/sample/3.92/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           26
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.72408317817458656     
+ Max neff:   0.13604903417473563     
+ rapmax:   0.91617562358128368     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.2714443511557916E-002
+ taus(ntauvals):    3.1400000000000001     
+ Try to read velocities: I have opened hydro/pPb/sample/3.8/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           29
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.76241666296717314     
+ Max neff:   0.21409370731023916     
+ rapmax:    1.0019613977248121     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.8331957374855742E-002
+ taus(ntauvals):    3.4399999999999999     
+ Try to read velocities: I have opened hydro/pPb/sample/3.85/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           27
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.67837492841716962     
+ Max neff:   0.17529983095353208     
+ rapmax:   0.82609740328739001     
+ etamax2:    3.0999999046325684     
+ natmdmin:    5.7312202539482805E-002
+ taus(ntauvals):    3.2400000000000002     
+  Completed 50 / 57 profiles (Mon Aug  3 05:03:29 PM EDT 2026)
+[51/57] Launching bin 3.96 (Ncoll=11, 10338 events)...
+[52/57] Launching bin .44 (Ncoll=9, 8459 events)...
+[53/57] Launching bin .45 (Ncoll=8, 7519 events)...
+[54/57] Launching bin .49 (Ncoll=4, 3759 events)...
+[55/57] Launching bin .71 (Ncoll=11, 10338 events)...
+ Reading parameters from parameters/ZJet_pPb_v4_3.96.dat                                                                     
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/3.96/NCollHisto.dat                                                                                                                                                                                                                                                                        
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           12
+ The hydro profiles I will read are in hydro/pPb/sample/3.96                                                                                                                                                                                                                                                                                       
+ Reading parameters from parameters/ZJet_pPb_v4_.44.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/.44/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            9
+ The hydro profiles I will read are in hydro/pPb/sample/.44                                                                                                                                                                                                                                                                                        
+ Reading parameters from parameters/ZJet_pPb_v4_.45.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/.45/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            9
+ The hydro profiles I will read are in hydro/pPb/sample/.45                                                                                                                                                                                                                                                                                        
+ Reading parameters from parameters/ZJet_pPb_v4_.49.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/.49/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            5
+ The hydro profiles I will read are in hydro/pPb/sample/.49                                                                                                                                                                                                                                                                                        
+ Reading parameters from parameters/ZJet_pPb_v4_.71.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/.71/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:           12
+ The hydro profiles I will read are in hydro/pPb/sample/.71                                                                                                                                                                                                                                                                                        
+ Try to read temps: I have opened hydro/pPb/sample/.49/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           21
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.25621400000000000     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/3.96/Tlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Tlist:           25
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.29596899999999998     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/.45/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           26
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.33671400000000001     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/.71/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           27
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.26850600000000002     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/.44/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           30
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.36169499999999999     
+ Done reading temperatures.
+ 
+ Try to read velocities: I have opened hydro/pPb/sample/.49/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           21
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.71016874499304750     
+ Max neff:   0.10219658057837717     
+ rapmax:   0.88752422578690759     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.0943084177972041E-002
+ taus(ntauvals):    2.6299999999999999     
+ Try to read velocities: I have opened hydro/pPb/sample/.71/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           27
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.70128476187779809     
+ Max neff:   0.11300842329345052     
+ rapmax:   0.86982412408514265     
+ etamax2:    3.0999999046325684     
+ natmdmin:    5.9873875852583969E-002
+ taus(ntauvals):    3.2400000000000002     
+ Try to read velocities: I have opened hydro/pPb/sample/3.96/Vlist.dat                                                                                                                                                                                                                                                                             
+ I counted the items in Vlist:           25
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.64593634944938660     
+ Max neff:   0.15189695791706589     
+ rapmax:   0.76829400493334055     
+ etamax2:    3.0999999046325684     
+ natmdmin:    5.4093290698512278E-002
+ taus(ntauvals):    3.0400000000000000     
+ Try to read velocities: I have opened hydro/pPb/sample/.45/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           26
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.75727532892205074     
+ Max neff:   0.22354860571135152     
+ rapmax:   0.98979600988694638     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.7505708620092517E-002
+ taus(ntauvals):    3.1400000000000001     
+ Try to read velocities: I have opened hydro/pPb/sample/.44/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           30
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.78320701032230300     
+ Max neff:   0.26972546017131127     
+ rapmax:    1.0536128898860004     
+ etamax2:    3.0999999046325684     
+ natmdmin:    7.1954145383228543E-002
+ taus(ntauvals):    3.5400000000000000     
+  Completed 55 / 57 profiles (Mon Aug  3 05:09:30 PM EDT 2026)
+[56/57] Launching bin .81 (Ncoll=1, 940 events)...
+[57/57] Launching bin .98 (Ncoll=4, 3759 events)...
+ Reading parameters from parameters/ZJet_pPb_v4_.98.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/.98/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            5
+ The hydro profiles I will read are in hydro/pPb/sample/.98                                                                                                                                                                                                                                                                                        
+ Reading parameters from parameters/ZJet_pPb_v4_.81.dat                                                                      
+ ...done
+ Try to read ncollhisto: I have opened hydro/pPb/sample/.81/NCollHisto.dat                                                                                                                                                                                                                                                                         
+ ncollhisto.dat has size        10202
+ for ncollyvals = ncollxvals:          101
+ I allocated x,y, and ncoll arrays
+ I allocated ncoll probability array
+ Number of non-zero entries:            2
+ The hydro profiles I will read are in hydro/pPb/sample/.81                                                                                                                                                                                                                                                                                        
+ Try to read temps: I have opened hydro/pPb/sample/.81/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:            9
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.20943899999999999     
+ Done reading temperatures.
+ 
+ Try to read temps: I have opened hydro/pPb/sample/.98/Tlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Tlist:           19
+ I allocated tau,x,y, and temps arrays
+ Maximum temperature:   0.26370600000000000     
+ Done reading temperatures.
+ 
+ Try to read velocities: I have opened hydro/pPb/sample/.81/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:            9
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.60489286230538386     
+ Max neff:    5.8376684646448532E-002
+ rapmax:   0.70082765904240196     
+ etamax2:    3.0999999046325684     
+ natmdmin:    5.0564199979707097E-002
+ taus(ntauvals):    1.4199999999999999     
+ Try to read velocities: I have opened hydro/pPb/sample/.98/Vlist.dat                                                                                                                                                                                                                                                                              
+ I counted the items in Vlist:           19
+ I allocated tau, x, y, uxs, uys arrays
+ Done reading velocities.
+ 
+ I read everything, some test values:
+ Max fluid velocity:   0.72601665598111453     
+ Max neff:   0.10778205308636424     
+ rapmax:   0.92025210267783042     
+ etamax2:    3.0999999046325684     
+ natmdmin:    6.2970619422703711E-002
+ taus(ntauvals):    2.4300000000000002     
+All 57 profiles complete. Total events allocated: 499997. Mon Aug  3 05:10:12 PM EDT 2026
+
+=== Converting HepMC to ROOT ===
+NegativeID: status 3 -> trackWeight = -1
+Processing eventfiles/out_ZJet_pPb_v4_.10.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_.13.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_.15.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_.17.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_.20.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.1.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.22.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.23.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.25.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.29.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.2.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.31.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.32.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.37.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.38.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.39.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.41.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.43.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.47.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_.24.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.50.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.53.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.54.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.58.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.61.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.62.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.64.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.6.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.72.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.75.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.78.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.7.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.84.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.89.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.90.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.94.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.95.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_2.97.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_.30.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_3.0.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_3.18.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_.33.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_3.42.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_3.4.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_3.60.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_3.69.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_3.85.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_3.8.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_3.92.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_3.96.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_3.9.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_.44.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_.45.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_.49.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_.71.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_.81.hepmc...
+Processing eventfiles/out_ZJet_pPb_v4_.98.hepmc...
+Wrote 499997 events to /raid5/data/kdevero/jewel_workspace/validation/jewel_pPb_v4_MOD_500k.root
+ROOT file: /raid5/data/kdevero/jewel_workspace/validation/jewel_pPb_v4_MOD_500k.root
+Done. Mon Aug  3 05:15:03 PM EDT 2026

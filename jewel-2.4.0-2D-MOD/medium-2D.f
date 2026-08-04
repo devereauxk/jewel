@@ -418,15 +418,15 @@ c--      Readncoll will have also created a list of all the bins with binary col
 c--      and duplicates for bins with more than one.  
 c--      Select a bin randomly.
 
-         rndIndex = int(pyr(0) * ncollSum)
+         rndIndex = int(pyr(0) * ncollSum) + 1
          
          
 c--   	Lastly, choose a random location in the histo square located at nci:
 c--	   Remember that readncoll stores the midpoint of the histo edges
          dx=(ncollxs(2)-ncollxs(1))
          dy=dx
-         X = ncollNZ(rndIndex,1)+ (pyr(0)-0.5) * dx
-         Y = ncollNZ(rndIndex,2)+ (pyr(0)-0.5) * dy
+         X = ncollpDist(rndIndex,1)+ (pyr(0)-0.5) * dx
+         Y = ncollpDist(rndIndex,2)+ (pyr(0)-0.5) * dy
 
 c         write(100,*)'V (X, Y): ', X, Y
 c         write(101,*)'V (X, Y): ', X, Y
