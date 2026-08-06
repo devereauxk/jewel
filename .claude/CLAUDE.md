@@ -90,6 +90,7 @@ JEWEL 2.4.0-2D-MOD templates in `jewel-2.4.0-2D-MOD/korinna/`:
 | `ZJet_pPb_v2.dat` | pPb hydro | 8160 GeV | 0 (unclamped) | 1.4 | on | jewel-2.4.0-2D |
 | `ZJet_pPb_v3.dat` | pPb hydro | 8160 GeV | 0 (unclamped) | 1.4 | off | jewel-2.4.0-2D |
 | `ZJet_pPb_v4.dat` | pPb hydro | 8160 GeV | 0 (unclamped) | 1.4 | on | jewel-2.4.0-2D |
+| `ZJet_pp8160v4.dat` | pp vacuum | 8160 GeV | 15 | 1.5 | n/a | jewel-2.4.0-vac |
 
 Placeholders: `xxxx` → job/bin ID, `yyyy` → events per bin (pPb only).
 
@@ -114,6 +115,7 @@ JEWEL 2.4.0-2D-MOD scripts in `jewel-2.4.0-2D-MOD/`:
 | `genPPbv2ZJet.sh` | pPb 8160 (recoils on) | 500k (100 bins x 5000) | `ZJet_pPb_v2.dat` | 5 parallel |
 | `genPPbv3ZJet.sh` | pPb 8160 (recoils off) | 500k (100 bins x 5000) | `ZJet_pPb_v3.dat` | 5 parallel |
 | `genPPbv4ZJet.sh` | pPb 8160 (recoils on) | ~500k (57 unique profiles, Ncoll-weighted) | `ZJet_pPb_v4.dat` | 5 parallel |
+| `genPP8160v4ZJet.sh` | pp 8160 | 500k (500 x 1000) | `ZJet_pp8160v4.dat` | 5 parallel |
 
 JEWEL 2.2.0 scripts in `jewel-2.2.0/`:
 
@@ -223,6 +225,7 @@ Examples:
 | `jewel_pPb_v2_MOD_500k.root` | 2.4.0-2D-MOD | pPb | 8160 | 0 (unclamped) | 1.4 | on | 500,000 |
 | `jewel_pPb_v3_MOD_norecoil_500k.root` | 2.4.0-2D-MOD | pPb | 8160 | 0 (unclamped) | 1.4 | off | 500,000 |
 | `jewel_pPb_v4_MOD_500k.root` | 2.4.0-2D-MOD | pPb | 8160 | 0 (unclamped) | 1.4 | on | ~500,000 |
+| `jewel_pp8160v4_MOD_500k.root` | 2.4.0-2D-MOD | pp | 8160 | 15 | 1.5 | n/a | 500,000 |
 
 Unmodified 2.4.0/2.4.0-2D samples have no parton shower evolution for PPZJ and should not be used for physics analysis. All PTMIN=0 entries without "(unclamped)" were actually PTMIN=3 due to the clamp bug. The v4 sample additionally includes the PICKVTX vertex fix and uses deduplicated hydro profiles (57 unique) with Ncoll-proportional event weighting.
 

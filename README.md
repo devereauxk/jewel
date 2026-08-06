@@ -36,6 +36,7 @@ All ROOT files are in `validation/`. The reference files `jewel_pp-v9.root` and 
 | `jewel_pPb_v2_MOD_500k.root` | 2.4.0-2D-MOD | pPb | 8160 | 0 (unclamped) | 1200 | 1.4 | 10042 | off | on | 500,000 | `ZJet_pPb_v2.dat` |
 | `jewel_pPb_v3_MOD_norecoil_500k.root` | 2.4.0-2D-MOD | pPb | 8160 | 0 (unclamped) | 1200 | 1.4 | 10042 | off | off | 500,000 | `ZJet_pPb_v3.dat` |
 | `jewel_pPb_v4_MOD_500k.root` | 2.4.0-2D-MOD | pPb | 8160 | 0 (unclamped) | 1200 | 1.4 | 10042 | off | on | ~500,000 | `ZJet_pPb_v4.dat` |
+| `jewel_pp8160v4_MOD_500k.root` | 2.4.0-2D-MOD | pp | 8160 | 15 | 1200 | 1.5 | 10042 | off | n/a | 500,000 | `ZJet_pp8160v4.dat` |
 | `jewel_pp-v9.root` (ref) | ? | pp | 5020 | ? | ? | ? | ? | ? | ? | 2,000,000 | FHead external |
 | `jewel_pp-v7.root` (ref) | ? | pp | 5020 | ? | ? | ? | ? | ? | ? | 100,000 | FHead external |
 
