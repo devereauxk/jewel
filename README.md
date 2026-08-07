@@ -23,14 +23,10 @@ All ROOT files are in `validation/`. The reference files `jewel_pp-v9.root` and 
 
 | File | JEWEL | System | Energy | PTMIN | PTMAX | WEXPO | PDFSET | nPDF | Recoils | Events | Config |
 |------|-------|--------|--------|-------|-------|-------|--------|------|---------|--------|--------|
-| `jewel_pp_220.root` | 2.2.0 | pp | 5020 | 15 | 1200 | 4.5 | 10042 | off (NSET=0) | n/a | 2,000,000 | `ZJet_pp.dat` |
 | `jewel_pp_220_v2_500k.root` | 2.2.0 | pp | 5020 | 0 | 1200 | 1.4 | 10042 | off (NSET=0) | n/a | 500,000 | `ZJet_pp_v2.dat` |
-| `jewel_pp_240.root` | 2.4.0 | pp | 5020 | 15 | 1200 | 4.5 | 10042 | off | n/a | 1,886,306 | `ZJet_pp.dat` |
-| `jewel_pp8160_2M.root` | 2.4.0 | pp | 8160 | 15 | 1200 | 4.5 | 10042 | off | n/a | 1,831,529 | `ZJet_pp_8160.dat` |
 | `jewel_pp8160v2_500k.root` | 2.4.0 | pp | 8160 | 5 | 1200 | 1.2 | 10042 | off | n/a | 468,857 | `ZJet_pp8160v2.dat` |
 | `jewel_pp8160v3_500k.root` | 2.4.0 | pp | 8160 | 0 | 1200 | 1.4 | 10042 | off | n/a | 468,816 | `ZJet_pp8160v3.dat` |
 | `jewel_pp8160_wexpo4p5_500k.root` | 2.4.0 | pp | 8160 | 0 | 1200 | 4.5 | 10042 | off | n/a | 472,273 | `ZJet_pp8160_wexpo4p5.dat` |
-| `jewel_pPb_2M.root` | 2.4.0-2D | pPb | 8160 | 15 | 1200 | 4.5 | 10042 | off | on | 1,340,059 | `ZJet_pPb.dat` |
 | `jewel_pPb_v2_500k.root` | 2.4.0-2D | pPb | 8160 | 0 | 1200 | 1.4 | 10042 | off | on | 468,584 | `ZJet_pPb_v2.dat` |
 | `jewel_pp8160v3_MOD_500k.root` | 2.4.0-2D-MOD | pp | 8160 | 0 (unclamped) | 1200 | 1.4 | 10042 | off | n/a | 500,000 | `ZJet_pp8160v3.dat` |
 | `jewel_pPb_v2_MOD_500k.root` | 2.4.0-2D-MOD | pPb | 8160 | 0 (unclamped) | 1200 | 1.4 | 10042 | off | on | 500,000 | `ZJet_pPb_v2.dat` |
@@ -42,7 +38,7 @@ All ROOT files are in `validation/`. The reference files `jewel_pp-v9.root` and 
 
 All pp vacuum runs use PROCESS PPZJ, ISOCHANNEL PP, HADRO T. pPb runs with recoils on additionally use KEEPRECOILS T, COMPRESS T, WRITESCATCEN T, WRITEDUMMIES T. The no-recoil pPb run uses KEEPRECOILS F with no hole subtraction needed.
 
-**2.4.0-2D-MOD** fixes three bugs: (1) `MSTP(125)=2` disabled the parton shower for PPZJ events (zero splittings, zero medium scatterings), (2) PTMIN was unconditionally clamped to 3 GeV, silently overriding PTMIN=0 configs for Z/W+jet processes (where the Z mass regulates the cross section), and (3) `PICKVTX` sampled vertex positions from the wrong array (`ncollNZ` instead of `ncollpDist`), pinning 5-27% of vertices at the fireball center (0,0). Files marked "unclamped" use the true PTMIN=0 — all other PTMIN=0 entries were actually PTMIN=3. The v4 sample additionally deduplicates the 100 hydro directories (57 unique Trajectum events) and weights events proportional to Ncoll. See `jewel-2.4.0-2D-MOD/CHANGES.diff` for details. Unmodified 2.4.0/2.4.0-2D samples above have no parton shower evolution and should not be used for physics analysis.
+**2.4.0-2D-MOD** fixes three bugs: (1) `MSTP(125)=2` disabled the parton shower for PPZJ events (zero splittings, zero medium scatterings), (2) PTMIN was unconditionally clamped to 3 GeV, silently overriding PTMIN=0 configs for Z/W+jet processes (where the Z mass regulates the cross section), and (3) `PICKVTX` sampled vertex positions from the wrong array (`ncollNZ` instead of `ncollpDist`), pinning 5-27% of vertices at the fireball center (0,0). Files marked "unclamped" use the true PTMIN=0 — all other PTMIN=0 entries were actually PTMIN=3. The v4 sample additionally runs each of the 57 unique Trajectum events once (of 100 directories; duplicates are extra minimum-bias slots, not artifacts) with events weighted proportional to slot multiplicity × Ncoll. See `jewel-2.4.0-2D-MOD/CHANGES.diff` for details. Unmodified 2.4.0/2.4.0-2D samples above have no parton shower evolution and should not be used for physics analysis.
 
 WEXPO controls importance sampling via `pT_hat^WEXPO`. All events carry EventWeight to compensate. WEXPO=1.4 with PTMIN=0 gives roughly equal raw event counts in Z pT bins [0,30) and [30,500] GeV (see `jewel-2.4.0-2D/wexpo_study.md`).
 

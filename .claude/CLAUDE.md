@@ -114,7 +114,7 @@ JEWEL 2.4.0-2D-MOD scripts in `jewel-2.4.0-2D-MOD/`:
 | `genPP8160v3ZJet.sh` | pp 8160 | 500k (500 x 1000) | `ZJet_pp8160v3.dat` | 5 parallel |
 | `genPPbv2ZJet.sh` | pPb 8160 (recoils on) | 500k (100 bins x 5000) | `ZJet_pPb_v2.dat` | 5 parallel |
 | `genPPbv3ZJet.sh` | pPb 8160 (recoils off) | 500k (100 bins x 5000) | `ZJet_pPb_v3.dat` | 5 parallel |
-| `genPPbv4ZJet.sh` | pPb 8160 (recoils on) | ~500k (57 unique profiles, Ncoll-weighted) | `ZJet_pPb_v4.dat` | 5 parallel |
+| `genPPbv4ZJet.sh` | pPb 8160 (recoils on) | ~500k (57 unique profiles, mult×Ncoll-weighted) | `ZJet_pPb_v4.dat` | 5 parallel |
 | `genPP8160v4ZJet.sh` | pp 8160 | 500k (500 x 1000) | `ZJet_pp8160v4.dat` | 5 parallel |
 
 JEWEL 2.2.0 scripts in `jewel-2.2.0/`:
@@ -143,7 +143,7 @@ PTMIN and WEXPO vary by sample — see config templates table above. WEXPO contr
 
 ### Hydro profiles
 
-Located at `hydro/sample/` with 100 directories (57 unique Trajectum minimum-bias events; 11 triplicated, 21 duplicated). Directory names are `<batchPrefix>.<eventNumber>` from the extraction script, not physics quantities. Some have dot-prefixed names (e.g., `.10`, `.13`) — **must use `find -L`** to discover all. Hardlinked into `jewel-2.4.0-2D/hydro/pPb/sample/` and `jewel-2.4.0-2D-MOD/hydro/pPb/sample/`. Ncoll ranges from 1 to 21 across unique events (total 532). The v4 generation script deduplicates and weights events proportional to Ncoll.
+Located at `hydro/sample/` with 100 directories (57 unique Trajectum minimum-bias events; 11 triplicated, 21 duplicated). Directory names are `<batchPrefix>.<eventNumber>` from the extraction script, not physics quantities. Some have dot-prefixed names (e.g., `.10`, `.13`) — **must use `find -L`** to discover all. Hardlinked into `jewel-2.4.0-2D/hydro/pPb/sample/` and `jewel-2.4.0-2D-MOD/hydro/pPb/sample/`. Ncoll ranges from 1 to 21 across unique events (total 532 over unique profiles). The v4 generation script runs each unique profile once, with events weighted proportional to slot multiplicity × Ncoll.
 
 Each bin contains: `NCollHisto.dat`, `Tcontour*` (29 time slices), `Vcontour*` (29 time slices).
 
@@ -227,7 +227,7 @@ Examples:
 | `jewel_pPb_v4_MOD_500k.root` | 2.4.0-2D-MOD | pPb | 8160 | 0 (unclamped) | 1.4 | on | ~500,000 |
 | `jewel_pp8160v4_MOD_500k.root` | 2.4.0-2D-MOD | pp | 8160 | 15 | 1.5 | n/a | 500,000 |
 
-Unmodified 2.4.0/2.4.0-2D samples have no parton shower evolution for PPZJ and should not be used for physics analysis. All PTMIN=0 entries without "(unclamped)" were actually PTMIN=3 due to the clamp bug. The v4 sample additionally includes the PICKVTX vertex fix and uses deduplicated hydro profiles (57 unique) with Ncoll-proportional event weighting.
+Unmodified 2.4.0/2.4.0-2D samples have no parton shower evolution for PPZJ and should not be used for physics analysis. All PTMIN=0 entries without "(unclamped)" were actually PTMIN=3 due to the clamp bug. The v4 sample additionally includes the PICKVTX vertex fix and runs each of the 57 unique hydro profiles once, with events allocated proportional to slot multiplicity × Ncoll (duplicate directories count as extra minimum-bias slots).
 
 Reference files (external, in workspace root): `jewel_pp-v9.root` (2M events, pp 5020 GeV), `jewel_pp-v7.root` (100k events, pp 5020 GeV). Generation settings unknown.
 

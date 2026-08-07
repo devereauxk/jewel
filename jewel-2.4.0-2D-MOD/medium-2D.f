@@ -1739,7 +1739,7 @@ C--   Fill arrays.
 					ncollNZ(nzc,1) = xph
 					ncollNZ(nzc,2) = yph
 					ncollNZ(nzc,3) = ncollph
-					ncollSum=ncollSum+ncollph
+					ncollSum=ncollSum+nint(ncollph)
 					nzc=nzc+1
 				end if
 C--   End of reading in Ncoll list 
@@ -1757,9 +1757,9 @@ C--	  Create ncoll pdist
 			nzci = 1
 			ncollpi = 1
 C--	  Place one entry for each binary collision
-			do while (nzci.le.nzc)
+			do while (nzci.lt.nzc)
 				nzcj = 1
-				ncollint=int(ncollNZ(nzci,3))
+				ncollint=nint(ncollNZ(nzci,3))
 				
 				do while (nzcj.le.ncollint)
 					ncollpDist(ncollpi,1) = ncollNZ(nzci,1)

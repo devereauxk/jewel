@@ -11,42 +11,54 @@ MAX_PARALLEL=5
 
 echo "Generating ${TOTAL_EVENTS} pPb 8160 GeV events with JEWEL 2.4.0-MOD + 2D hydro (PICKVTX fix)"
 echo "PTMIN=0, PTMAX=1200, WEXPO=1.4, KEEPRECOILS=T"
-echo "Deduplicated hydro profiles, events weighted proportional to Ncoll"
+echo "Deduplicated hydro profiles, events weighted proportional to (slot multiplicity x Ncoll)"
 echo "Started: $(date)"
 
-# --- Phase 1: discover unique profiles and extract Ncoll ---
-declare -A seen_md5
+# --- Phase 1: discover unique profiles, their Ncoll, and slot multiplicity ---
+# Each of the 100 directories is one equal-probability minimum-bias slot; a
+# profile duplicated in k directories fills k slots, so its hard-event weight
+# is k * Ncoll.
+declare -A md5_to_idx
 unique_bins=()
 unique_ncoll=()
-total_ncoll=0
+unique_mult=()
 
 while IFS= read -r d; do
     bin="$(basename "$d")"
     h=$(md5sum "$d/NCollHisto.dat" | awk '{print $1}')
-    if [[ -n "${seen_md5[$h]+x}" ]]; then
-        echo "  Skipping duplicate: $bin (same as ${seen_md5[$h]})"
+    if [[ -n "${md5_to_idx[$h]+x}" ]]; then
+        idx=${md5_to_idx[$h]}
+        unique_mult[$idx]=$((unique_mult[idx] + 1))
+        echo "  Duplicate slot: $bin (multiplicity of ${unique_bins[$idx]} -> ${unique_mult[$idx]})"
         continue
     fi
-    seen_md5[$h]="$bin"
+    md5_to_idx[$h]=${#unique_bins[@]}
     nc=$(awk 'NR>4 && $3>0 {s+=$3} END {printf "%d",s}' "$d/NCollHisto.dat")
     unique_bins+=("$bin")
     unique_ncoll+=("$nc")
-    total_ncoll=$((total_ncoll + nc))
+    unique_mult+=(1)
 done < <(find -L "$HYDRO_SAMPLE" -mindepth 1 -maxdepth 1 -type d | sort)
 
 NBINS=${#unique_bins[@]}
+total_weight=0
+total_slots=0
+for i in "${!unique_bins[@]}"; do
+    total_weight=$((total_weight + unique_mult[i] * unique_ncoll[i]))
+    total_slots=$((total_slots + unique_mult[i]))
+done
 echo ""
-echo "Found $NBINS unique hydro profiles (from $(find -L "$HYDRO_SAMPLE" -mindepth 1 -maxdepth 1 -type d | wc -l) total directories)"
-echo "Total Ncoll across unique profiles: $total_ncoll"
+echo "Found $NBINS unique hydro profiles filling $total_slots minimum-bias slots"
+echo "Total weight sum(mult x Ncoll): $total_weight"
 echo ""
 
-# --- Phase 2: allocate events proportional to Ncoll and launch ---
+# --- Phase 2: allocate events proportional to mult x Ncoll and launch ---
 allocated=0
 count=0
 for i in "${!unique_bins[@]}"; do
     bin="${unique_bins[$i]}"
     nc="${unique_ncoll[$i]}"
-    nevt=$(( (TOTAL_EVENTS * nc + total_ncoll / 2) / total_ncoll ))
+    mult="${unique_mult[$i]}"
+    nevt=$(( (TOTAL_EVENTS * mult * nc + total_weight / 2) / total_weight ))
     [[ $nevt -lt 1 ]] && nevt=1
     allocated=$((allocated + nevt))
 
@@ -62,7 +74,7 @@ MEDEOF
 
     sed -e "s/xxxx/$bin/g" -e "s/yyyy/$nevt/g" "$TEMPLATE" > "parameters/ZJet_pPb_v4_${bin}.dat"
 
-    echo "[$((i+1))/$NBINS] Launching bin $bin (Ncoll=$nc, $nevt events)..."
+    echo "[$((i+1))/$NBINS] Launching bin $bin (Ncoll=$nc, mult=$mult, $nevt events)..."
     ./jewel-2.4.0-2D "parameters/ZJet_pPb_v4_${bin}.dat" &
 
     count=$((count + 1))

@@ -125,3 +125,53 @@ switches PICKVTX to use ncollpDist with correct 1-based indexing.
 -         Y = ncollNZ(rndIndex,2)+ (pyr(0)-0.5) * dy
 +         X = ncollpDist(rndIndex,1)+ (pyr(0)-0.5) * dx
 +         Y = ncollpDist(rndIndex,2)+ (pyr(0)-0.5) * dy
+
+=======================================================================
+
+Fix latent out-of-bounds write in READNCOLL ncollpDist fill (medium-2D.f)
+
+After the histogram read loop, nzc is left at (number of nonzero cells)+1,
+so valid ncollNZ rows are 1..nzc-1. The ncollpDist fill loop ran
+"do while (nzci.le.nzc)", reading one row of ncollNZ past the last filled
+entry. That row is allocated but never initialized: if the heap garbage
+there is a large positive double, int(garbage) entries are written past
+the end of ncollpDist (allocated with exactly ncollSum rows) — silent
+heap corruption. Fresh allocations usually land on zeroed pages
+(int(0.)=0, no extra iterations), which is why production runs were
+unaffected, but the behavior is nondeterministic and became live code
+once PICKVTX started reading ncollpDist.
+
+Additionally hardened the float->int conversion of per-cell collision
+counts from int() (truncation) to nint() (round to nearest), applied
+consistently in both the ncollSum accumulation and the fill loop so the
+ncollpDist allocation size always matches the number of rows written.
+All 100 NCollHisto.dat files were verified to contain integer-valued
+Ncoll only (zero fractional cells), so int() was exact on current data;
+nint() guards against inexact float representation in future inputs.
+
+@@ -1742,1 +1742,1 @@
+-					ncollSum=ncollSum+ncollph
++					ncollSum=ncollSum+nint(ncollph)
+@@ -1760,3 +1760,3 @@
+-			do while (nzci.le.nzc)
++			do while (nzci.lt.nzc)
+ 				nzcj = 1
+-				ncollint=int(ncollNZ(nzci,3))
++				ncollint=nint(ncollNZ(nzci,3))
+
+=======================================================================
+
+Note on hydro-ensemble weighting (generation script, not Fortran source)
+
+The 100 directories under hydro/pPb/sample contain 57 unique Trajectum
+events (md5 of NCollHisto.dat: 11 profiles appear 3x, 21 appear 2x, 25
+once). Treating each directory as one equal-probability minimum-bias
+slot (duplicates are NOT packaging artifacts), the hard-event (Z+jet)
+allocation per unique profile is
+
+    nevt_i  proportional to  multiplicity_i x Ncoll_i
+
+genPPbv4ZJet.sh runs each unique profile once with events allocated by
+this weight (earlier revision used Ncoll only, dropping the multiplicity
+factor; the equal-events-per-directory scheme used by genPPbv2/v3ZJet.sh
+honors multiplicity but omits the Ncoll factor required for hard probes).
